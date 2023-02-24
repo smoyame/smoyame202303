@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/smoyamedina/2023/issues"
   },
-  "homepage": "https://github.com/smoyamedina/2023#readme"
+  "homepage": "https://github.com/smoyamedina/2023#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0"
+  }
 }
