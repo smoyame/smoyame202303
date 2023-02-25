@@ -7,4 +7,4 @@ fetch(
 		}
 		return response.json();
 	})
-	.then((data) => console.log(data.result));
+	.then((data) => data.result);
