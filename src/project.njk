@@ -1,0 +1,11 @@
+---
+layout: 'base.njk'
+title: PROJECT TEST
+pagination:
+  data: projects
+  size: 1
+  alias: p
+permalink: "projects/{{ p.title | slugify }}/"
+---
+
+<h1>{{ p.title }}</h1>
