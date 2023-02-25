@@ -5,7 +5,6 @@ license.txt
 exports
 *.cache
 build
-.css.map
 
 ############################
 # OS X
@@ -93,3 +92,4 @@ node_modules
 
 testApp
 coverage
+public/stylesheets/style.css.map
