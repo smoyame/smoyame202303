@@ -5,7 +5,7 @@ license.txt
 exports
 *.cache
 build
-.map
+.css.map
 
 ############################
 # OS X
