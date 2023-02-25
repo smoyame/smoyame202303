@@ -4,7 +4,7 @@ module.exports = function (eleventyConfig) {
 		dir: {
 			input: "src",
 			output: "public",
-			includes: "src/_includes",
+			includes: "_includes/njk",
 		},
 		htmlTemplateEngine: "njk",
 	};
