@@ -1,2 +1,3 @@
 README.md
-*.ts
+\*.ts
+./src/\_includes/scss
