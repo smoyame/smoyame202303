@@ -1,7 +1,12 @@
 {
 	"compilerOptions": {
-		"outDir": "../public"
+		"outDir": "../public",
+		"declaration": false
 	},
 	"include": ["**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules", "__fetch/*"]
+	"exclude": ["node_modules", "__fetch/*"],
+	"references": [
+		// declare the dependencies
+		{ "path": "__fetch" }
+	]
 }

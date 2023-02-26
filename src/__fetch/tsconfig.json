@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
-		"outDir": "../../src/_data"
+		"outDir": "../../src/_data",
+		"composite": true
 	},
 	"include": ["**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
