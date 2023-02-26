@@ -5,6 +5,7 @@ license.txt
 exports
 *.cache
 build
+.tsbuildinfo
 
 ############################
 # OS X
