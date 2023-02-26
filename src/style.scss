@@ -1,4 +1,9 @@
-@use "_includes/scss/_normalize.scss";
+@use "_includes/scss/_reset.scss";
+@use "_includes/scss/_typefaces.scss";
+
+/* -------------------------------------------------------------------------- */
+/*                               PROJECT STYLES                               */
+/* -------------------------------------------------------------------------- */
 
 :root {
 	font-family: sans-serif;
