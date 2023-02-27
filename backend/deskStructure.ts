@@ -1,6 +1,6 @@
 // deskStructure.ts
 // *** Reference used: https://www.sanity.io/docs/structure-builder-reference#1e6a04652e80
-// todo--make reusable
+
 export const myStructure = (S: any) => {
   let singleTypes = [
     {name: 'selectWork', title: 'My Work'},
