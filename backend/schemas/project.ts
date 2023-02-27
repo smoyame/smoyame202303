@@ -2,7 +2,7 @@
 export default {
   name: 'project',
   type: 'document',
-  title: 'Project',
+  title: 'Project Index',
   fields: [
     {
       name: 'title',
