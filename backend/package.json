@@ -9,12 +9,14 @@
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy-graphql": "sanity graphql deploy",
+    "delete": "sanity documents delete"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
+    "@sanity/cli": "^3.5.0",
     "@sanity/vision": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
