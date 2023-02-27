@@ -1,7 +1,7 @@
 // schemas/selectWork.ts
 export default {
   name: 'selectWork',
-  title: 'My Works',
+  title: 'My Work',
   type: 'document',
   fields: [
     {
