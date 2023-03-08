@@ -1,3 +1,7 @@
+import {GridField} from '../components/GridField'
+import {GridFieldArea} from '../components/GridFieldArea'
+import {GridInput} from '../components/GridInput'
+
 // schemas/projects.ts
 export default {
   name: 'project',
@@ -17,6 +21,45 @@ export default {
     theme: 'dark',
   },
   fields: [
+    {
+      name: 'gridColumn',
+      title: 'Grid Columns',
+      type: 'object',
+      description:
+        'Choose how far you want the card to span across the grid. This does not show the final aspect-ratio or height.',
+      components: {
+        field: GridField,
+      },
+      fields: [
+        {
+          name: 'gridStart',
+          title: 'Grid Start',
+          type: 'number',
+          options: {
+            list: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          },
+          components: {
+            field: GridFieldArea,
+            input: GridInput,
+          },
+        },
+        {
+          name: 'gridEnd',
+          title: 'Grid End',
+          type: 'number',
+          options: {
+            list: [5, 6, 7, 8, 9, 10, 11, 12, 13],
+          },
+          components: {
+            field: GridFieldArea,
+            input: GridInput,
+          },
+        },
+      ],
+    },
+    //*
+    //*  Finalized fields
+    //*
     {
       name: 'title',
       title: 'Project',
