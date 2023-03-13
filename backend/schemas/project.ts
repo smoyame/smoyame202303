@@ -1,6 +1,5 @@
-import {GridField} from '../components/GridField'
-import {GridFieldArea} from '../components/GridFieldArea'
-import {GridInput} from '../components/GridInput'
+import {RangeInput} from '../components/RangeInput'
+import {defineType, defineField} from 'sanity'
 
 // schemas/projects.ts
 export default {
@@ -9,64 +8,33 @@ export default {
   title: 'Project Index',
   groups: [
     {
+      name: 'homepage',
+      title: 'Homepage',
+    },
+    {
       name: 'copy',
       title: 'Copy',
     },
     {
-      name: 'media',
-      title: 'Media',
+      name: 'visual',
+      title: 'Visual',
     },
   ],
   initialValue: {
     theme: 'dark',
+    gridColumns: {
+      start: 1,
+      end: 13,
+    },
   },
   fields: [
-    {
-      name: 'gridColumn',
-      title: 'Grid Columns',
-      type: 'object',
-      description:
-        'Choose how far you want the card to span across the grid. This does not show the final aspect-ratio or height.',
-      components: {
-        field: GridField,
-      },
-      fields: [
-        {
-          name: 'gridStart',
-          title: 'Grid Start',
-          type: 'number',
-          options: {
-            list: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-          },
-          components: {
-            field: GridFieldArea,
-            input: GridInput,
-          },
-        },
-        {
-          name: 'gridEnd',
-          title: 'Grid End',
-          type: 'number',
-          options: {
-            list: [5, 6, 7, 8, 9, 10, 11, 12, 13],
-          },
-          components: {
-            field: GridFieldArea,
-            input: GridInput,
-          },
-        },
-      ],
-    },
-    //*
-    //*  Finalized fields
-    //*
     {
       name: 'title',
       title: 'Project',
       type: 'string',
       description:
         'Title your project. This displays on its cards and will be used as the slug for your project page.',
-      group: 'copy',
+      group: ['copy', 'homepage'],
     },
     {
       name: 'theme',
@@ -91,7 +59,36 @@ export default {
       type: 'file',
       accept: ['png', 'mp4', 'gif', 'jpg', 'jpeg'],
       fields: [{name: 'alt', title: 'Alt Text', type: 'string'}],
-      group: 'media',
+      group: ['visual', 'homepage'],
+    },
+    {
+      name: 'gridColumns',
+      title: 'Layout Columns',
+      type: 'object',
+      group: 'homepage',
+      options: {
+        columns: 2,
+      },
+      description:
+        'Choose how far you want the card to span across the grid. This does not show the final aspect-ratio or height.',
+      fields: [
+        {
+          name: 'start',
+          title: 'Starting Column',
+          type: 'number',
+          // components: {
+          //   input: RangeInput,
+          // },
+          validation: (Rule: any) => Rule.required().min(1).max(9).integer(),
+        },
+
+        {
+          name: 'end',
+          title: 'Ending Column',
+          type: 'number',
+          validation: (Rule: any) => Rule.required().min(5).max(13).integer(),
+        },
+      ],
     },
     {
       name: 'info',
@@ -122,12 +119,13 @@ export default {
       options: {
         layout: 'tags',
       },
-      group: 'copy',
+      group: ['copy', 'homepage'],
     },
     {
       name: 'content',
       title: 'Content',
       type: 'array',
+      group: ['copy', 'visual'],
       of: [
         {
           name: 'media',
@@ -140,7 +138,6 @@ export default {
               type: 'file',
               accept: ['png', 'mp4', 'gif', 'jpg', 'jpeg'],
               fields: [{name: 'alt', title: 'Alt Text', type: 'string'}],
-              group: 'media',
             },
           ],
         },
@@ -153,7 +150,6 @@ export default {
               name: 'text',
               title: 'Text',
               type: 'text',
-              group: 'copy',
             },
           ],
         },
