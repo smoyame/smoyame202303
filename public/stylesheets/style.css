@@ -137,7 +137,7 @@ textarea {
   --fs-E: var(--fs-root);
   /* Leading */
   --lh-display: 0.95;
-  --lh-B: 1.06;
+  --lh-A: 1.06;
   --lh-B: 1.25;
   --lh-C: 1.24;
   --lh-D: 1.52;
@@ -183,6 +183,15 @@ textarea {
 /* -------------------------------------------------------------------------- */
 /*                               PROJECT STYLES                               */
 /* -------------------------------------------------------------------------- */
+::-moz-selection {
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+}
+::selection {
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+}
+
 body {
   background-color: var(--background-color);
   color: var(--foreground-color);
@@ -201,18 +210,40 @@ a {
   text-underline-offset: 0.35em;
 }
 
+.header,
 .main,
 .footer {
-  margin: 0 var(--unit);
+  padding-inline: var(--unit);
+}
+
+.header {
+  padding-top: calc(0.8 * var(--unit));
+}
+
+.main__hero-text {
+  font-size: var(--fs-A);
+  letter-spacing: var(--ls-A);
+  line-height: var(--lh-A);
 }
 
 .work__heading,
 .about__heading {
-  font-size: var(--fs-A);
-  letter-spacing: var(--ls-A);
+  font-size: var(--fs-B);
+  letter-spacing: var(--ls-B);
+  line-height: var(--lh-B);
 }
 
 .projcard__title {
   font-family: var(--secondary-type);
   font-size: var(--fs-C);
+  letter-spacing: var(--ls-C);
+  line-height: var(--lh-C);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                          More detailed base cases                          */
+/* -------------------------------------------------------------------------- */
+.hero-text--emph {
+  font-family: var(--secondary-type);
+  font-style: italic;
 }/*# sourceMappingURL=style.css.map */
