@@ -1,11 +1,41 @@
 @use "_includes/scss/_reset.scss";
 @use "_includes/scss/_typefaces.scss";
+@use "_includes/scss/_variables.scss";
 
 /* -------------------------------------------------------------------------- */
 /*                               PROJECT STYLES                               */
 /* -------------------------------------------------------------------------- */
 
-:root {
-	font-family: sans-serif;
-	font-size: 1em;
+body {
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+	font-family: var(--primary-type);
+	font-kerning: normal;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: var(--border-radius);
+}
+
+a {
+	text-decoration: underline;
+	text-underline-offset: 0.35em;
+}
+
+.main,
+.footer {
+	margin: 0 var(--unit);
+}
+
+.work__heading,
+.about__heading {
+	font-size: var(--fs-A);
+	letter-spacing: var(--ls-A);
+}
+
+.projcard__title {
+	font-family: var(--secondary-type);
+	font-size: var(--fs-C);
 }
