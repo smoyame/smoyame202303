@@ -1,28 +1,14 @@
 @charset "UTF-8";
-@import url("https://p.typekit.net/p.css?s=1&k=sop2imr&ht=tk&f=45648&a=5108939&app=typekit&e=css"); /***
-    The new CSS reset - version 1.8.4 (last updated 14.2.2023)
-    GitHub page: https://github.com/elad2412/the-new-css-reset
-***/
-/*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
- */
-*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-  all: unset;
-  display: revert;
-}
-
-/* Preferred box-sizing value */
+@import url("https://p.typekit.net/p.css?s=1&k=sop2imr&ht=tk&f=45648&a=5108939&app=typekit&e=css");
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-/* Reapply the pointer cursor for anchor tags */
-a,
-button {
-  cursor: revert;
+  margin: 0;
+  padding: 0;
+  font-weight: unset;
+  font-family: unset;
+  font-size: unset;
 }
 
 /* Remove list styles (bullets/numbers) */
@@ -32,46 +18,14 @@ menu {
   list-style: none;
 }
 
-/* For images to not be able to exceed their container */
+/* Images have mutable height and width */
 img {
-  max-inline-size: 100%;
-  max-block-size: 100%;
-}
-
-/* removes spacing between cells in tables */
-table {
-  border-collapse: collapse;
-}
-
-/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
-input,
-textarea {
-  -webkit-user-select: auto;
+  display: block;
 }
 
 /* revert the 'white-space' property for textarea elements on Safari */
 textarea {
   white-space: revert;
-}
-
-/* minimum style to allow to style meter element */
-meter {
-  -webkit-appearance: revert;
-  -moz-appearance: revert;
-       appearance: revert;
-}
-
-/* preformatted text - use only for this feature */
-:where(pre) {
-  all: revert;
-}
-
-/* reset default text opacity of input placeholder */
-::-moz-placeholder {
-  color: unset;
-}
-::placeholder {
-  color: unset;
 }
 
 /* remove default dot (•) sign */
@@ -83,27 +37,6 @@ meter {
  display:revert; revert to element instead of attribute */
 :where([hidden]) {
   display: none;
-}
-
-/* revert for bug in Chromium browsers
- - fix for the content editable attribute will work properly.
- - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
-:where([contenteditable]:not([contenteditable=false])) {
-  -moz-user-modify: read-write;
-  -webkit-user-modify: read-write;
-  overflow-wrap: break-word;
-  -webkit-line-break: after-white-space;
-  -webkit-user-select: auto;
-}
-
-/* apply back the draggable feature - exist only in Chromium and Safari */
-:where([draggable=true]) {
-  -webkit-user-drag: element;
-}
-
-/* Revert Modal native behavior */
-:where(dialog:modal) {
-  all: revert;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -126,7 +59,7 @@ meter {
 /* -------------------------------------------------------------------------- */
 @font-face {
   font-family: "Mori";
-  src: url("/_assets/fonts/PPMori-Book.woff2") format("woff2");
+  src: local("PP Mori Book"), local("PPMori-Book"), url("/_assets/fonts/PPMori-Book.woff2") format("woff2");
   font-display: auto;
   font-style: normal;
   font-weight: 300;
@@ -134,7 +67,7 @@ meter {
 }
 @font-face {
   font-family: "Mori";
-  src: url("/_assets/fonts/PPMori-Regular.woff2") format("woff2");
+  src: local("PP Mori Regular"), local("PPMori-Regular"), url("/_assets/fonts/PPMori-Regular.woff2") format("woff2");
   font-display: auto;
   font-style: normal;
   font-weight: 400;
@@ -144,25 +77,142 @@ meter {
 /*                              PP Editorial New                              */
 /* -------------------------------------------------------------------------- */
 @font-face {
-  font-family: "editorial";
-  src: url("/_assets/fonts/PPEditorialNew-Light.woff2") format("woff2");
+  font-family: "Editorial";
+  src: local("PP Editorial New Light"), local("PPEditorialNew-Light"), url("/_assets/fonts/PPEditorialNew-Light.woff2") format("woff2");
   font-display: auto;
   font-style: normal;
   font-weight: 300;
   font-stretch: normal;
 }
 @font-face {
-  font-family: "editorial";
-  src: url("/_assets/fonts/PPEditorialNew-LightItalic.woff2") format("woff2");
+  font-family: "Editorial";
+  src: local("PP Editorial New Light Italic"), local("PPEditorialNew-LightItalic"), url("/_assets/fonts/PPEditorialNew-LightItalic.woff2") format("woff2");
   font-display: auto;
   font-style: italic;
   font-weight: 300;
   font-stretch: normal;
 }
+:root {
+  /* -------------------------------------------------------------------------- */
+  /*                               Color Variables                              */
+  /* -------------------------------------------------------------------------- */
+  /* Raw HSL Values */
+  /* Use when alpha is necessary? */
+  --hsl-pensive: 175, 70%, 18%;
+  --hsl-poder: 216, 100%, 33%;
+  --hsl-vibing: 282, 95%, 77%;
+  --hsl-alertness: 3, 100%, 69%;
+  --hsl-disfruta: 335, 100%, 73%;
+  --hsl-zesty: 48, 100%, 72%;
+  --hsl-bright: 240, 41%, 88%;
+  --hsl-night: 240, 8%, 14%;
+  /* Set to-use color bases */
+  --main-pensive: hsl(var(--hsl-pensive));
+  --main-poder: hsl(var(--hsl-poder));
+  --main-vibing: hsl(var(--hsl-vibing));
+  --main-alertness: hsl(var(--hsl-alertness));
+  --main-disfruta: hsl(var(--hsl-disfruta));
+  --main-zesty: hsl(var(--hsl-zesty));
+  --main-bright: hsl(var(--hsl-bright));
+  --main-night: hsl(var(--hsl-night));
+  /* -------------------------------------------------------------------------- */
+  /*                             Type Variables                            */
+  /* -------------------------------------------------------------------------- */
+  /* Family */
+  --primary-type: "Mori", Poppins, Helvetica, Arial, sans-serif;
+  --secondary-type: "Editorial", "Lastik", "Playfair Display", Cambria, Cochin,
+  	Georgia, Times, "Times New Roman", serif;
+  --tertiary-type: "Dico Mono Script", "Courier New", Courier, monospace;
+  /* Size */
+  --fs-root: clamp(
+  	1.125rem,
+  	calc(0.75rem + 0.526125vw),
+  	calc(0.75rem + 0.526125vw)
+  );
+  --fs-display: 7.954545rem;
+  --fs-A: 4.772727rem;
+  --fs-B: 3.454545rem;
+  --fs-C: 1.954545rem;
+  --fs-D: 1.181818rem;
+  --fs-E: var(--fs-root);
+  /* Leading */
+  --lh-display: 0.95;
+  --lh-B: 1.06;
+  --lh-B: 1.25;
+  --lh-C: 1.24;
+  --lh-D: 1.52;
+  --lh-E: 1.5;
+  /* Tracking */
+  --ls-display: -0.05em;
+  --ls-A: -0.035em;
+  --ls-B: -0.015em;
+  --ls-C: -0.01em;
+  --ls-D: -0.005em;
+  --ls-E: 0.0075em;
+  /* -------------------------------------------------------------------------- */
+  /*                              Whitespace Units                              */
+  /* -------------------------------------------------------------------------- */
+  --gap-B: 8rem;
+  --gap-C: 4rem;
+  --gap-D: 2rem;
+  --gap-E: 1rem;
+  --unit: var(--gap-E);
+  /* -------------------------------------------------------------------------- */
+  /*                                    Grid                                    */
+  /* -------------------------------------------------------------------------- */
+  --grid-col-setting: repeat(12, 1fr);
+  --grid-gap-unit: var(--gap-E);
+  /* -------------------------------------------------------------------------- */
+  /*                                   Borders                                  */
+  /* -------------------------------------------------------------------------- */
+  --border-width: 2px;
+  --border-style: solid;
+  --border-color: var(--foreground-color);
+  --border-radius: 0.25rem;
+  --border: var(--border-width) var(--border-style) var(--border-color);
+  /* -------------------------------------------------------------------------- */
+  /*                               Set base values                              */
+  /* -------------------------------------------------------------------------- */
+  font-size: var(--fs-root);
+  line-height: var(--lh-E);
+  letter-spacing: var(--ls-E);
+  --foreground-color: var(--main-night);
+  --background-color: var(--main-bright);
+}
+
 /* -------------------------------------------------------------------------- */
 /*                               PROJECT STYLES                               */
 /* -------------------------------------------------------------------------- */
-:root {
-  font-family: sans-serif;
-  font-size: 1em;
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-family: var(--primary-type);
+  font-kerning: normal;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--border-radius);
+}
+
+a {
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+}
+
+.main,
+.footer {
+  margin: 0 var(--unit);
+}
+
+.work__heading,
+.about__heading {
+  font-size: var(--fs-A);
+  letter-spacing: var(--ls-A);
+}
+
+.projcard__title {
+  font-family: var(--secondary-type);
+  font-size: var(--fs-C);
 }/*# sourceMappingURL=style.css.map */
