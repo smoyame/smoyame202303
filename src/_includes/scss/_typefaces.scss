@@ -27,7 +27,7 @@
 /* -------------------------------------------------------------------------- */
 
 @font-face {
-	font-family: "PP Mori";
+	font-family: "Mori";
 	src: url("/_assets/fonts/PPMori-Book.woff2") format("woff2");
 	font-display: auto;
 	font-style: normal;
@@ -36,7 +36,7 @@
 }
 
 @font-face {
-	font-family: "PP Mori";
+	font-family: "Mori";
 	src: url("/_assets/fonts/PPMori-Regular.woff2") format("woff2");
 	font-display: auto;
 	font-style: normal;
@@ -49,17 +49,8 @@
 /* -------------------------------------------------------------------------- */
 
 @font-face {
-	font-family: "PP Editorial New";
-	src: url("/_assets/fonts/PPEditorialNew-Regular.woff2") format("woff2");
-	font-display: auto;
-	font-style: normal;
-	font-weight: 400;
-	font-stretch: normal;
-}
-
-@font-face {
-	font-family: "PP Editorial New";
-	src: url("/_assets/fonts/PPEditorialNew-Ultralight.woff2") format("woff2");
+	font-family: "editorial";
+	src: url("/_assets/fonts/PPEditorialNew-Light.woff2") format("woff2");
 	font-display: auto;
 	font-style: normal;
 	font-weight: 300;
@@ -67,9 +58,8 @@
 }
 
 @font-face {
-	font-family: "PP Editorial New";
-	src: url("/_assets/fonts/PPEditorialNew-UltralightItalic.woff2")
-		format("woff2");
+	font-family: "editorial";
+	src: url("/_assets/fonts/PPEditorialNew-LightItalic.woff2") format("woff2");
 	font-display: auto;
 	font-style: italic;
 	font-weight: 300;
