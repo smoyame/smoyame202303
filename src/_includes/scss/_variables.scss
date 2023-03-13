@@ -66,16 +66,17 @@
 	--tertiary-type: "Dico Mono Script", "Courier New", Courier, monospace;
 
 	/* Size */
-	--fs-root: clamp(
-		1.125rem,
-		calc(0.75rem + 0.526125vw),
-		calc(0.75rem + 0.526125vw)
-	);
+	--fs-root: clamp(1.125rem, calc(0.5rem + 0.723vw), calc(0.5rem + 0.723vw));
 	--fs-display: 7.954545rem;
-	--fs-A: 4.772727rem;
-	--fs-B: 3.454545rem;
-	--fs-C: 1.954545rem;
-	--fs-D: 1.181818rem;
+	--fs-display: clamp(3rem, calc(0.5rem + 8.622vw), calc(0.5rem + 8.622vw));
+	// --fs-A: 4.772727rem;
+	--fs-A: clamp(2.75rem, calc(0.5rem + 5.008vw), calc(0.5rem + 5.008vw));
+	// --fs-B: 3.454545rem;
+	--fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
+	// --fs-C: 1.954545rem;
+	--fs-C: clamp(1.625rem, calc(0.5rem + 1.8075vw), calc(0.5rem + 1.8075vw));
+	// --fs-D: 1.181818rem;
+	--fs-D: clamp(1.125rem, calc(0.5rem + 0.93vw), calc(0.5rem + 0.93vw));
 	--fs-E: var(--fs-root);
 
 	/* Leading */
@@ -122,9 +123,8 @@
 	/*                               Set base values                              */
 	/* -------------------------------------------------------------------------- */
 
-	font-size: var(--fs-root);
-	line-height: var(--lh-E);
-	letter-spacing: var(--ls-E);
+	// line-height: var(--lh-E);
+	// letter-spacing: var(--ls-E);
 
 	--foreground-color: var(--main-night);
 	--background-color: var(--main-bright);
