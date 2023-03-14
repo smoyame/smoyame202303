@@ -11,6 +11,11 @@
   font-size: unset;
 }
 
+p,
+a {
+  color: inherit;
+}
+
 /* Remove list styles (bullets/numbers) */
 ol,
 ul,
@@ -124,16 +129,13 @@ textarea {
   	Georgia, Times, "Times New Roman", serif;
   --tertiary-type: "Dico Mono Script", "Courier New", Courier, monospace;
   /* Size */
-  --fs-root: clamp(
-  	1.125rem,
-  	calc(0.75rem + 0.526125vw),
-  	calc(0.75rem + 0.526125vw)
-  );
+  --fs-root: clamp(1.125rem, calc(0.5rem + 0.723vw), calc(0.5rem + 0.723vw));
   --fs-display: 7.954545rem;
-  --fs-A: 4.772727rem;
-  --fs-B: 3.454545rem;
-  --fs-C: 1.954545rem;
-  --fs-D: 1.181818rem;
+  --fs-display: clamp(3rem, calc(0.5rem + 8.622vw), calc(0.5rem + 8.622vw));
+  --fs-A: clamp(2.75rem, calc(0.5rem + 5.008vw), calc(0.5rem + 5.008vw));
+  --fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
+  --fs-C: clamp(1.625rem, calc(0.5rem + 1.8075vw), calc(0.5rem + 1.8075vw));
+  --fs-D: clamp(1.125rem, calc(0.5rem + 0.93vw), calc(0.5rem + 0.93vw));
   --fs-E: var(--fs-root);
   /* Leading */
   --lh-display: 0.95;
@@ -173,9 +175,6 @@ textarea {
   /* -------------------------------------------------------------------------- */
   /*                               Set base values                              */
   /* -------------------------------------------------------------------------- */
-  font-size: var(--fs-root);
-  line-height: var(--lh-E);
-  letter-spacing: var(--ls-E);
   --foreground-color: var(--main-night);
   --background-color: var(--main-bright);
 }
@@ -193,8 +192,9 @@ textarea {
 }
 
 body {
-  background-color: var(--background-color);
   color: var(--foreground-color);
+  background-color: var(--background-color);
+  font-size: var(--fs-root);
   font-family: var(--primary-type);
   font-kerning: normal;
 }
@@ -242,8 +242,58 @@ a {
 
 /* -------------------------------------------------------------------------- */
 /*                          More detailed base cases                          */
-/* -------------------------------------------------------------------------- */
 .hero-text--emph {
   font-family: var(--secondary-type);
   font-style: italic;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  GLOBAL                                    */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                   HEADER                                   */
+.container {
+  background: var(--background-color);
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 100;
+  color: var(--background-color);
+  mix-blend-mode: difference;
+}
+
+@supports (font-smoothing: always) {
+  .header {
+    font-smooth: always;
+  }
+}
+@supports (-webkit-font-smoothing: anti-aliasing) {
+  .header {
+    -webkit-font-smoothing: anti-aliasing;
+  }
+}
+.logotype {
+  display: block;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.logotype,
+.nav__link {
+  text-decoration: none;
+}
+
+.nav__item {
+  text-align: end;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                HERO SECTION                                */
+.footer {
+  height: 100vh;
+  outline: 1px solid red;
 }/*# sourceMappingURL=style.css.map */

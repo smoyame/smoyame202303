@@ -18,8 +18,9 @@
 }
 
 body {
-	background-color: var(--background-color);
 	color: var(--foreground-color);
+	background-color: var(--background-color);
+	font-size: var(--fs-root);
 	font-family: var(--primary-type);
 	font-kerning: normal;
 }
@@ -60,9 +61,65 @@ a {
 
 /* -------------------------------------------------------------------------- */
 /*                          More detailed base cases                          */
-/* -------------------------------------------------------------------------- */
 
 .hero-text--emph {
 	font-family: var(--secondary-type);
 	font-style: italic;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  GLOBAL                                    */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                                   HEADER                                   */
+
+.container {
+	background: var(--background-color);
+}
+
+.header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	position: fixed;
+	z-index: 100;
+	color: var(--background-color);
+	mix-blend-mode: difference;
+}
+
+@supports (font-smoothing: always) {
+	.header {
+		font-smooth: always;
+	}
+}
+
+@supports (-webkit-font-smoothing: anti-aliasing) {
+	.header {
+		-webkit-font-smoothing: anti-aliasing;
+	}
+}
+
+.logotype {
+	display: block;
+	height: fit-content;
+}
+
+.logotype,
+.nav__link {
+	text-decoration: none;
+	//
+	// font-weight: 300;
+}
+
+.nav__item {
+	text-align: end;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                HERO SECTION                                */
+
+.footer {
+	height: 100vh;
+	outline: 1px solid red;
 }
