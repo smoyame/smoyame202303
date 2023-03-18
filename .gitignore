@@ -94,3 +94,6 @@ node_modules
 testApp
 coverage
 public/stylesheets/style.css.map
+
+# Local Netlify folder
+.netlify
