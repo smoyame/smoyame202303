@@ -1,6 +1,6 @@
 export = async () => {
 	let response = await fetch(
-		"https://vzl61mfy.api.sanity.io/v2021-06-07/data/query/production?query=*[_type == 'project']"
+		"https://vzl61mfy.api.sanity.io/v2021-06-07/data/query/production?query=*[_type == 'selectWork']{list[]->}.list[]"
 	);
 
 	if (!response.ok) {
