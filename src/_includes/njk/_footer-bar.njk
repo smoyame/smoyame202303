@@ -1,0 +1,8 @@
+<div class="footer__bar">
+	{% for i in range(0, 5) %}
+	<div class="marquee" {% if (i > 0) %}aria-hidden="true" {% endif %}>
+		<span class="marquee__txt">DC + Bmore</span><span class="marquee__txt">Made with TLC</span><span class="marquee__txt">Currently open to freelance opportunities or especially strong
+			and human-centered full-time opportunities</span><span class="marquee__txt">did you know that 8 out of 10 cats do countdowns?</span><span class="marquee__txt">oh that wasn’t supposed to go on the live site</span><span class="marquee__txt">it's a funny show, check it out maybe</span>
+	</div>
+	{% endfor %}
+</div>
