@@ -1,3 +1,7 @@
+---
+theme: bright
+---
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -10,22 +14,27 @@
   <meta property="og:title" content="Digital Designer | Sami Moya Medina">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.smoya.me/">
-  {# <meta property="og:image" content=""> #}
+  {#
+  <meta property="og:image" content=""> #}
   <!-- Favi, Icons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
 
 </head>
 
-<body>
-	<div class="container">
-		{% include "_header.njk" %}
-		{{ content | safe }}
-		{% include "_footer.njk" %}
-	</div>
+<body class="{{theme}}">
+  <div class="container">
+
+    {% include "_header.njk" %}
+    <main class="main">
+      {{ content | safe }}
+    </main>
+    {% include "_footer.njk" %}
+
+  </div>
   <!-- Scripts -->
   <script src="js/app.js"></script>
 
