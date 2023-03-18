@@ -5,6 +5,10 @@ export default {
   title: 'Project Index',
   groups: [
     {
+      name: 'home',
+      title: 'Homepage',
+    },
+    {
       name: 'copy',
       title: 'Copy',
     },
@@ -14,7 +18,7 @@ export default {
     },
   ],
   initialValue: {
-    theme: 'dark',
+    theme: 'night',
   },
   fields: [
     {
@@ -23,7 +27,7 @@ export default {
       type: 'string',
       description:
         'Title your project. This displays on its cards and will be used as the slug for your project page.',
-      group: 'copy',
+      group: ['copy', 'home'],
     },
     {
       name: 'theme',
@@ -31,7 +35,7 @@ export default {
       type: 'string',
       options: {
         list: [
-          {title: 'Dark', value: 'dark'},
+          {title: 'Night', value: 'night'},
           {title: 'Bright', value: 'bright'},
           {title: 'Vibing', value: 'vibing'},
           {title: 'Alertness', value: 'alertness'},
@@ -48,7 +52,7 @@ export default {
       type: 'file',
       accept: ['png', 'mp4', 'gif', 'jpg', 'jpeg'],
       fields: [{name: 'alt', title: 'Alt Text', type: 'string'}],
-      group: 'media',
+      group: ['media', 'home'],
     },
     {
       name: 'info',
@@ -72,6 +76,26 @@ export default {
       group: 'copy',
     },
     {
+      name: 'placement',
+      title: 'Homepage Card Placement',
+      type: 'object',
+      description:
+        'Choose where across the 13 grid column seperators you want the project card to span.',
+      fields: [
+        {
+          name: 'start',
+          title: 'Start',
+          type: 'number',
+        },
+        {
+          name: 'end',
+          title: 'End',
+          type: 'number',
+        },
+      ],
+      group: 'home',
+    },
+    {
       name: 'tags',
       title: 'Tags',
       type: 'array',
@@ -79,7 +103,7 @@ export default {
       options: {
         layout: 'tags',
       },
-      group: 'copy',
+      group: ['copy', 'home'],
     },
     {
       name: 'content',
