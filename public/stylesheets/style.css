@@ -64,7 +64,7 @@ textarea {
 /* -------------------------------------------------------------------------- */
 @font-face {
   font-family: "Mori";
-  src: local("PP Mori Book"), local("PPMori-Book"), url("/_assets/fonts/PPMori-Book.woff2") format("woff2");
+  src: local("PP Mori Book"), local("PPMori-Book"), url("/_assets/typefaces/PPMori-Book.woff2") format("woff2");
   font-display: auto;
   font-style: normal;
   font-weight: 300;
@@ -72,7 +72,7 @@ textarea {
 }
 @font-face {
   font-family: "Mori";
-  src: local("PP Mori Regular"), local("PPMori-Regular"), url("/_assets/fonts/PPMori-Regular.woff2") format("woff2");
+  src: local("PP Mori Regular"), local("PPMori-Regular"), url("/_assets/typefaces/PPMori-Regular.woff2") format("woff2");
   font-display: auto;
   font-style: normal;
   font-weight: 400;
@@ -83,7 +83,7 @@ textarea {
 /* -------------------------------------------------------------------------- */
 @font-face {
   font-family: "Editorial";
-  src: local("PP Editorial New Light"), local("PPEditorialNew-Light"), url("/_assets/fonts/PPEditorialNew-Light.woff2") format("woff2");
+  src: local("PP Editorial New Light"), local("PPEditorialNew-Light"), url("/_assets/typefaces/PPEditorialNew-Light.woff2") format("woff2");
   font-display: auto;
   font-style: normal;
   font-weight: 300;
@@ -91,7 +91,7 @@ textarea {
 }
 @font-face {
   font-family: "Editorial";
-  src: local("PP Editorial New Light Italic"), local("PPEditorialNew-LightItalic"), url("/_assets/fonts/PPEditorialNew-LightItalic.woff2") format("woff2");
+  src: local("PP Editorial New Light Italic"), local("PPEditorialNew-LightItalic"), url("/_assets/typefaces/PPEditorialNew-LightItalic.woff2") format("woff2");
   font-display: auto;
   font-style: italic;
   font-weight: 300;
