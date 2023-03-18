@@ -134,20 +134,20 @@ textarea {
   --fs-A: clamp(2.75rem, calc(0.5rem + calc(4.3vw + 2.15vh)), calc(0.5rem + calc(4.3vw + 2.15vh)));
   --fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
   --fs-C: clamp(1.625rem, calc(0.5rem + 1.8075vw), calc(0.5rem + 1.8075vw));
-  --fs-D: clamp(1.125rem, calc(0.5rem + 0.93vw), calc(0.5rem + 0.93vw));
+  --fs-D: clamp(1.125rem, calc(0.5rem + 0.939vw), calc(0.5rem + 0.939vw));
   --fs-E: var(--fs-root);
   /* Leading */
   --lh-display: 0.95;
   --lh-A: 1.06;
   --lh-B: 1.25;
-  --lh-C: 1.24;
+  --lh-C: 1.25;
   --lh-D: 1.52;
   --lh-E: 1.5;
   /* Tracking */
   --ls-display: -0.05em;
   --ls-A: -0.035em;
   --ls-B: -0.03125em;
-  --ls-C: -0.01em;
+  --ls-C: -0.015em;
   --ls-D: -0.005em;
   --ls-E: 0.0075em;
   /* -------------------------------------------------------------------------- */
@@ -337,19 +337,23 @@ body {
   font-kerning: normal;
 }
 
-img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: var(--border-radius);
+section {
+  min-height: 65vh;
+}
+
+p {
+  margin-bottom: 1em;
 }
 
 a {
   text-decoration: underline;
-  text-underline-offset: 0.35em;
+  text-underline-offset: 0.375em;
 }
 
-section {
-  min-height: 65vh;
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--border-radius);
 }
 
 .header,
@@ -374,11 +378,13 @@ section {
 /*                            MAIN STYLE SECTIONS                             */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
-/*                                   HEADER                                   */
+/*                                MAIN WRAPPERS                               */
 .container {
   background: var(--background-color);
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   HEADER                                   */
 .header {
   width: 100%;
   display: flex;
@@ -455,9 +461,14 @@ section {
 }
 
 .proj-card__linked-wrapper {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   margin-bottom: var(--gap-D);
+}
+
+.proj-card:nth-of-type(1), .proj-card:nth-of-type(2) {
+  align-self: flex-end;
 }
 
 .proj-card__copy {
@@ -491,6 +502,38 @@ section {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                 HOME ABOUT                                 */
+.main__about {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--unit);
+  padding-block: var(--gap-A);
+}
+
+.about__heading {
+  min-width: -moz-max-content;
+  min-width: max-content;
+  flex: 1 1 45%;
+}
+
+.about__copy {
+  min-width: 38ch;
+  flex: 1 1 45%;
+}
+
+.about__copy-grafs {
+  font-size: var(--fs-C);
+  letter-spacing: var(--ls-C);
+  line-height: var(--lh-C);
+}
+
+.about__copy-link {
+  font-size: var(--fs-D);
+  letter-spacing: var(--ls-D);
+  line-height: var(--lh-D);
+}
+
+/* -------------------------------------------------------------------------- */
 /*                                   FOOTER                                   */
 /* -------------------------------------------------------------------------- */
 /*                                                                            */
@@ -502,6 +545,7 @@ section {
 @media (min-width: 950px) {
   .work__gallery {
     display: grid;
+    gap: var(--unit);
     grid-template-columns: var(--grid-col-setting);
   }
 }/*# sourceMappingURL=style.css.map */

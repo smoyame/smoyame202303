@@ -84,19 +84,23 @@ body {
 	font-kerning: normal;
 }
 
-img {
-	max-width: 100%;
-	max-height: 100%;
-	border-radius: var(--border-radius);
+section {
+	min-height: 65vh;
+}
+
+p {
+	margin-bottom: 1em;
 }
 
 a {
 	text-decoration: underline;
-	text-underline-offset: 0.35em;
+	text-underline-offset: 0.375em;
 }
 
-section {
-	min-height: 65vh;
+img {
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: var(--border-radius);
 }
 
 .header,
@@ -122,11 +126,14 @@ section {
 //
 
 /* -------------------------------------------------------------------------- */
-/*                                   HEADER                                   */
+/*                                MAIN WRAPPERS                               */
 
 .container {
 	background: var(--background-color);
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                   HEADER                                   */
 
 .header {
 	width: 100%;
@@ -207,9 +214,18 @@ section {
 }
 
 .proj-card__linked-wrapper {
+	text-decoration: none;
+	//
 	display: flex;
 	flex-direction: column;
 	margin-bottom: var(--gap-D);
+}
+
+.proj-card {
+	&:nth-of-type(1),
+	&:nth-of-type(2) {
+		align-self: flex-end;
+	}
 }
 
 .proj-card__copy {
@@ -243,6 +259,7 @@ section {
 	min-width: 100%;
 	min-height: 100%;
 }
+
 // X - TODO
 
 // @supports (container-type: size) and (container-type: inline-size) and (container-type: normal) {
@@ -256,6 +273,34 @@ section {
 // 		}
 // 	}
 // }
+
+/* -------------------------------------------------------------------------- */
+/*                                 HOME ABOUT                                 */
+
+.main__about {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--unit);
+	padding-block: var(--gap-A);
+}
+
+.about__heading {
+	min-width: max-content;
+	flex: 1 1 45%;
+}
+
+.about__copy {
+	min-width: 38ch;
+	flex: 1 1 45%;
+}
+
+.about__copy-grafs {
+	@include typelvl(C);
+}
+
+.about__copy-link {
+	@include typelvl(D);
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                   FOOTER                                   */
@@ -276,6 +321,7 @@ section {
 @media (min-width: 950px) {
 	.work__gallery {
 		display: grid;
+		gap: var(--unit);
 		grid-template-columns: var(--grid-col-setting);
 	}
 }
