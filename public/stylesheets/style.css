@@ -109,8 +109,8 @@ textarea {
   --hsl-alertness: 3, 100%, 69%;
   --hsl-disfruta: 335, 100%, 73%;
   --hsl-zesty: 48, 100%, 72%;
-  --hsl-bright: 240, 41%, 88%;
-  --hsl-night: 240, 8%, 14%;
+  --hsl-bright: 240, 26%, 89%;
+  --hsl-night: 255, 6%, 13%;
   /* Set to-use color bases */
   --main-pensive: hsl(var(--hsl-pensive));
   --main-poder: hsl(var(--hsl-poder));
@@ -125,14 +125,13 @@ textarea {
   /* -------------------------------------------------------------------------- */
   /* Family */
   --primary-type: "Mori", Poppins, Helvetica, Arial, sans-serif;
-  --secondary-type: "Editorial", "Lastik", "Playfair Display", Cambria, Cochin,
-  	Georgia, Times, "Times New Roman", serif;
+  --secondary-type: "Editorial", "Lastik", "Playfair Display", Cambria, Cochin, Georgia, Times,
+  	"Times New Roman", serif;
   --tertiary-type: "Dico Mono Script", "Courier New", Courier, monospace;
   /* Size */
   --fs-root: clamp(1.125rem, calc(0.5rem + 0.723vw), calc(0.5rem + 0.723vw));
-  --fs-display: 7.954545rem;
   --fs-display: clamp(3rem, calc(0.5rem + 8.622vw), calc(0.5rem + 8.622vw));
-  --fs-A: clamp(2.75rem, calc(0.5rem + 5.008vw), calc(0.5rem + 5.008vw));
+  --fs-A: clamp(2.75rem, calc(0.5rem + calc(4.3vw + 2.15vh)), calc(0.5rem + calc(4.3vw + 2.15vh)));
   --fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
   --fs-C: clamp(1.625rem, calc(0.5rem + 1.8075vw), calc(0.5rem + 1.8075vw));
   --fs-D: clamp(1.125rem, calc(0.5rem + 0.93vw), calc(0.5rem + 0.93vw));
@@ -147,17 +146,19 @@ textarea {
   /* Tracking */
   --ls-display: -0.05em;
   --ls-A: -0.035em;
-  --ls-B: -0.015em;
+  --ls-B: -0.03125em;
   --ls-C: -0.01em;
   --ls-D: -0.005em;
   --ls-E: 0.0075em;
   /* -------------------------------------------------------------------------- */
   /*                              Whitespace Units                              */
   /* -------------------------------------------------------------------------- */
-  --gap-B: 8rem;
-  --gap-C: 4rem;
-  --gap-D: 2rem;
-  --gap-E: 1rem;
+  --gap-A: calc(var(--fs-root) * 14);
+  --gap-B: calc(var(--fs-root) * 10);
+  --gap-C: calc(var(--fs-root) * 6);
+  --gap-D: calc(var(--fs-root) * 2);
+  --gap-E: var(--fs-root);
+  --gap-F: calc(var(--fs-root) * 0.5);
   --unit: var(--gap-E);
   /* -------------------------------------------------------------------------- */
   /*                                    Grid                                    */
@@ -177,6 +178,139 @@ textarea {
   /* -------------------------------------------------------------------------- */
   --foreground-color: var(--main-night);
   --background-color: var(--main-bright);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                                                            */
+/*                                                                            */
+/*                                 UTILITIES                                  */
+/*                                                                            */
+/*                                                                            */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                               GRID UTILITIES                               */
+.start1 {
+  grid-column-start: 1;
+}
+
+.start2 {
+  grid-column-start: 2;
+}
+
+.start3 {
+  grid-column-start: 3;
+}
+
+.start4 {
+  grid-column-start: 4;
+}
+
+.start5 {
+  grid-column-start: 5;
+}
+
+.start6 {
+  grid-column-start: 6;
+}
+
+.start7 {
+  grid-column-start: 7;
+}
+
+.start8 {
+  grid-column-start: 8;
+}
+
+.start9 {
+  grid-column-start: 9;
+}
+
+.end5 {
+  grid-column-end: 5;
+}
+
+.end6 {
+  grid-column-end: 6;
+}
+
+.end7 {
+  grid-column-end: 7;
+}
+
+.end8 {
+  grid-column-end: 8;
+}
+
+.end9 {
+  grid-column-end: 9;
+}
+
+.end10 {
+  grid-column-end: 10;
+}
+
+.end11 {
+  grid-column-end: 11;
+}
+
+.end12 {
+  grid-column-end: 12;
+}
+
+.end13 {
+  grid-column-end: 13;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               COLOR UTILITIES                              */
+.pensive {
+  --foreground-color: var(--main-bright);
+  --background-color: var(--main-pensive);
+}
+
+.poder {
+  --foreground-color: var(--main-bright);
+  --background-color: var(--main-poder);
+}
+
+.vibing {
+  --foreground-color: var(--main-night);
+  --background-color: var(--main-vibing);
+}
+
+.alertness {
+  --foreground-color: var(--main-night);
+  --background-color: var(--main-alertness);
+}
+
+.disfruta {
+  --foreground-color: var(--main-night);
+  --background-color: var(--main-disfruta);
+}
+
+.zesty {
+  --foreground-color: var(--main-night);
+  --background-color: var(--main-zesty);
+}
+
+.bright {
+  --foreground-color: var(--main-night);
+  --background-color: var(--main-bright);
+}
+
+.night {
+  --foreground-color: var(--main-bright);
+  --background-color: var(--main-night);
+}
+
+.bright {
+  --foreground-color: var(--main-night);
+  --background-color: var(--main-bright);
+}
+
+.dark {
+  --foreground-color: var(--main-bright);
+  --background-color: var(--main-night);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -210,6 +344,10 @@ a {
   text-underline-offset: 0.35em;
 }
 
+section {
+  min-height: 65vh;
+}
+
 .header,
 .main,
 .footer {
@@ -218,12 +356,7 @@ a {
 
 .header {
   padding-top: calc(0.8 * var(--unit));
-}
-
-.main__hero-text {
-  font-size: var(--fs-A);
-  letter-spacing: var(--ls-A);
-  line-height: var(--lh-A);
+  font-weight: 400;
 }
 
 .work__heading,
@@ -233,22 +366,12 @@ a {
   line-height: var(--lh-B);
 }
 
-.projcard__title {
-  font-family: var(--secondary-type);
-  font-size: var(--fs-C);
-  letter-spacing: var(--ls-C);
-  line-height: var(--lh-C);
-}
-
 /* -------------------------------------------------------------------------- */
-/*                          More detailed base cases                          */
-.hero-text--emph {
-  font-family: var(--secondary-type);
-  font-style: italic;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                  GLOBAL                                    */
+/*                                                                            */
+/*                                                                            */
+/*                            MAIN STYLE SECTIONS                             */
+/*                                                                            */
+/*                                                                            */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 /*                                   HEADER                                   */
@@ -261,21 +384,8 @@ a {
   display: flex;
   justify-content: space-between;
   position: fixed;
-  z-index: 100;
-  color: var(--background-color);
-  mix-blend-mode: difference;
 }
 
-@supports (font-smoothing: always) {
-  .header {
-    font-smooth: always;
-  }
-}
-@supports (-webkit-font-smoothing: anti-aliasing) {
-  .header {
-    -webkit-font-smoothing: anti-aliasing;
-  }
-}
 .logotype {
   display: block;
   height: -moz-fit-content;
@@ -287,13 +397,111 @@ a {
   text-decoration: none;
 }
 
+.nav__wrapper {
+  padding-bottom: var(--gap-F);
+  border-bottom: var(--border);
+}
+
 .nav__item {
   text-align: end;
 }
 
 /* -------------------------------------------------------------------------- */
 /*                                HERO SECTION                                */
-.footer {
-  height: 100vh;
-  outline: 1px solid red;
+.main__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.main__hero-text,
+.hero-text__larger--chunk-a,
+.hero-text__larger--chunk-b {
+  display: block;
+}
+
+.main__hero-text {
+  font-size: var(--fs-A);
+  letter-spacing: var(--ls-A);
+  line-height: var(--lh-A);
+  padding-block: var(--gap-A);
+}
+
+.hero-text__larger--chunk-a {
+  -webkit-margin-start: calc(var(--unit) * 0.275);
+          margin-inline-start: calc(var(--unit) * 0.275);
+}
+
+.hero-text__larger--chunk-b {
+  -webkit-margin-end: calc(var(--unit) * 0.45);
+          margin-inline-end: calc(var(--unit) * 0.45);
+  text-align: right;
+}
+
+.hero-text--emph {
+  font-family: var(--secondary-type);
+  font-style: italic;
+}
+
+.hero-text__keep {
+  white-space: nowrap;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              HOME WORK GALLERY                             */
+.work__heading {
+  display: none;
+}
+
+.proj-card__linked-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--gap-D);
+}
+
+.proj-card__copy {
+  order: 2;
+  margin-top: var(--gap-F);
+  display: flex;
+  justify-content: space-between;
+}
+
+.proj-card__title {
+  font-family: var(--secondary-type);
+  font-size: var(--fs-C);
+  letter-spacing: var(--ls-C);
+  line-height: var(--lh-C);
+}
+
+.proj-card__tag {
+  position: relative;
+  top: -0.123em;
+  white-space: nowrap;
+}
+
+.image-wrapper {
+  display: block;
+  aspect-ratio: 16/10;
+}
+
+.image {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   FOOTER                                   */
+/* -------------------------------------------------------------------------- */
+/*                                                                            */
+/*                                                                            */
+/*                                   DESKTOP                                  */
+/*                                                                            */
+/*                                                                            */
+/* -------------------------------------------------------------------------- */
+@media (min-width: 950px) {
+  .work__gallery {
+    display: grid;
+    grid-template-columns: var(--grid-col-setting);
+  }
 }/*# sourceMappingURL=style.css.map */

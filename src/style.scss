@@ -1,6 +1,14 @@
-@use "_includes/scss/_reset.scss";
-@use "_includes/scss/_typefaces.scss";
-@use "_includes/scss/_variables.scss";
+@use "_includes/scss/_reset";
+@use "_includes/scss/_typefaces";
+@use "_includes/scss/_variables" as variables;
+
+/* -------------------------------------------------------------------------- */
+/*                                                                            */
+/*                                                                            */
+/*                                 UTILITIES                                  */
+/*                                                                            */
+/*                                                                            */
+/* -------------------------------------------------------------------------- */
 
 @mixin typelvl($letter) {
 	font-size: var(--fs-#{$letter});
@@ -9,7 +17,58 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/*                               PROJECT STYLES                               */
+/*                               GRID UTILITIES                               */
+
+@mixin gridSpan($start: true, $value) {
+	@if $start {
+		.start#{$value} {
+			grid-column-start: #{$value};
+		}
+	} @else {
+		.end#{$value} {
+			grid-column-end: #{$value};
+		}
+	}
+}
+
+@for $gridColStart from 1 through 9 {
+	@include gridSpan(true, $gridColStart);
+}
+
+@for $gridColEnd from 5 through 13 {
+	@include gridSpan(false, $gridColEnd);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               COLOR UTILITIES                              */
+
+@each $colorName, $hslValue in variables.$colors {
+	.#{$colorName} {
+		@if ($colorName == "pensive" or $colorName == "poder" or $colorName == "night") {
+			--foreground-color: var(--main-bright);
+		} @else {
+			--foreground-color: var(--main-night);
+		}
+		--background-color: var(--main-#{$colorName});
+	}
+}
+
+.bright {
+	--foreground-color: var(--main-night);
+	--background-color: var(--main-bright);
+}
+
+.dark {
+	--foreground-color: var(--main-bright);
+	--background-color: var(--main-night);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                                                            */
+/*                                                                            */
+/*                          PROJECT STYLE SECTIONS                            */
+/*                                                                            */
+/*                                                                            */
 /* -------------------------------------------------------------------------- */
 
 ::selection {
@@ -36,17 +95,19 @@ a {
 	text-underline-offset: 0.35em;
 }
 
+section {
+	min-height: 65vh;
+}
+
 .header,
 .main,
 .footer {
 	padding-inline: var(--unit);
 }
+
 .header {
 	padding-top: calc(0.8 * var(--unit));
-}
-
-.main__hero-text {
-	@include typelvl(A);
+	font-weight: 400;
 }
 
 .work__heading,
@@ -54,22 +115,11 @@ a {
 	@include typelvl(B);
 }
 
-.projcard__title {
-	font-family: var(--secondary-type);
-	@include typelvl(C);
-}
-
 /* -------------------------------------------------------------------------- */
-/*                          More detailed base cases                          */
-
-.hero-text--emph {
-	font-family: var(--secondary-type);
-	font-style: italic;
-}
-
+/*                            MAIN STYLE SECTIONS                             */
 /* -------------------------------------------------------------------------- */
-/*                                  GLOBAL                                    */
-/* -------------------------------------------------------------------------- */
+
+//
 
 /* -------------------------------------------------------------------------- */
 /*                                   HEADER                                   */
@@ -83,21 +133,9 @@ a {
 	display: flex;
 	justify-content: space-between;
 	position: fixed;
-	z-index: 100;
-	color: var(--background-color);
-	mix-blend-mode: difference;
-}
-
-@supports (font-smoothing: always) {
-	.header {
-		font-smooth: always;
-	}
-}
-
-@supports (-webkit-font-smoothing: anti-aliasing) {
-	.header {
-		-webkit-font-smoothing: anti-aliasing;
-	}
+	// z-index: 100;
+	// color: var(--background-color);
+	// mix-blend-mode: difference;
 }
 
 .logotype {
@@ -108,8 +146,11 @@ a {
 .logotype,
 .nav__link {
 	text-decoration: none;
-	//
-	// font-weight: 300;
+}
+
+.nav__wrapper {
+	padding-bottom: var(--gap-F);
+	border-bottom: var(--border);
 }
 
 .nav__item {
@@ -119,7 +160,122 @@ a {
 /* -------------------------------------------------------------------------- */
 /*                                HERO SECTION                                */
 
-.footer {
-	height: 100vh;
-	outline: 1px solid red;
+.main__hero {
+	// min-height: 70vh;
+	display: flex;
+	// so flex items will grow to width of parent
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+}
+
+.main__hero-text,
+.hero-text__larger--chunk-a,
+.hero-text__larger--chunk-b {
+	display: block;
+}
+
+.main__hero-text {
+	@include typelvl(A);
+	//
+	padding-block: var(--gap-A);
+}
+
+.hero-text__larger--chunk-a {
+	margin-inline-start: calc(var(--unit) * 0.275);
+}
+
+.hero-text__larger--chunk-b {
+	margin-inline-end: calc(var(--unit) * 0.45);
+	text-align: right;
+}
+
+.hero-text--emph {
+	font-family: var(--secondary-type);
+	font-style: italic;
+}
+
+.hero-text__keep {
+	white-space: nowrap;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              HOME WORK GALLERY                             */
+
+.work__heading {
+	display: none;
+}
+
+.proj-card__linked-wrapper {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: var(--gap-D);
+}
+
+.proj-card__copy {
+	order: 2;
+	//
+	margin-top: var(--gap-F);
+	display: flex;
+	justify-content: space-between;
+}
+
+.proj-card__title {
+	font-family: var(--secondary-type);
+	@include typelvl(C);
+}
+
+.proj-card__tag {
+	position: relative;
+	top: -0.123em;
+	//
+	white-space: nowrap;
+}
+
+// O - TODO find out where to keep this permanently
+.image-wrapper {
+	display: block;
+	aspect-ratio: 16 / 10;
+	// min-height: 60vh;
+}
+
+.image {
+	min-width: 100%;
+	min-height: 100%;
+}
+// X - TODO
+
+// @supports (container-type: size) and (container-type: inline-size) and (container-type: normal) {
+// 	.proj-card {
+// 		container-type: inline-size;
+// 		container-name: ProjectCard;
+// 	}
+// 	@container ProjectCard (max-width: 500px) {
+// 		.proj-card-tag {
+// 			background-color: magenta;
+// 		}
+// 	}
+// }
+
+/* -------------------------------------------------------------------------- */
+/*                                   FOOTER                                   */
+
+// .footer {
+// 	height: 100vh;
+// 	outline: 1px solid red;
+// }
+
+/* -------------------------------------------------------------------------- */
+/*                                                                            */
+/*                                                                            */
+/*                                   DESKTOP                                  */
+/*                                                                            */
+/*                                                                            */
+/* -------------------------------------------------------------------------- */
+
+@media (min-width: 950px) {
+	.work__gallery {
+		display: grid;
+		grid-template-columns: var(--grid-col-setting);
+	}
 }

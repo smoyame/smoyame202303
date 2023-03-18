@@ -1,3 +1,15 @@
+// SASS variables can't be scoped into a CSS selector, because they will then not be available globally for SCSS iteration wirht @for, @each, etc
+$colors: (
+	"pensive": "175, 70%, 18%",
+	"poder": "216, 100%, 33%",
+	"vibing": "282, 95%, 77%",
+	"alertness": "3, 100%, 69%",
+	"disfruta": "335, 100%, 73%",
+	"zesty": "48, 100%, 72%",
+	"bright": "240, 26%, 89%",
+	"night": "255, 6%, 13%",
+);
+
 :root {
 	/* -------------------------------------------------------------------------- */
 	/*                               Color Variables                              */
@@ -10,31 +22,19 @@
 	// --disfruta: hsl(335, 100%, 73%);
 	// --zesty: hsl(48, 100%, 72%);
 	// //
-	// --bright: hsl(240, 41%, 88%);
-	// --night: hsl(240, 8%, 14%);
+	// --bright: hsl(240, 26%, 89%);
+	// --night: hsl(255, 6%, 13%);
 
 	/* Raw HSL Values */
 	/* Use when alpha is necessary? */
-	--hsl-pensive: 175, 70%, 18%;
-	--hsl-poder: 216, 100%, 33%;
-	--hsl-vibing: 282, 95%, 77%;
-	--hsl-alertness: 3, 100%, 69%;
-	--hsl-disfruta: 335, 100%, 73%;
-	--hsl-zesty: 48, 100%, 72%;
-	//
-	--hsl-bright: 240, 41%, 88%;
-	--hsl-night: 240, 8%, 14%;
+	@each $colorName, $hslValue in $colors {
+		--hsl-#{$colorName}: #{$hslValue};
+	}
 
 	/* Set to-use color bases */
-	--main-pensive: hsl(var(--hsl-pensive));
-	--main-poder: hsl(var(--hsl-poder));
-	--main-vibing: hsl(var(--hsl-vibing));
-	--main-alertness: hsl(var(--hsl-alertness));
-	--main-disfruta: hsl(var(--hsl-disfruta));
-	--main-zesty: hsl(var(--hsl-zesty));
-	//
-	--main-bright: hsl(var(--hsl-bright));
-	--main-night: hsl(var(--hsl-night));
+	@each $colorName, $hslValue in $colors {
+		--main-#{$colorName}: hsl(var(--hsl-#{$colorName}));
+	}
 
 	/* -------------------------------------------------------------------------- */
 	/*                             Type Variables                            */
@@ -61,21 +61,17 @@
 	// * -------- ACTUAL CLAMPS -------- *
 	/* Family */
 	--primary-type: "Mori", Poppins, Helvetica, Arial, sans-serif;
-	--secondary-type: "Editorial", "Lastik", "Playfair Display", Cambria, Cochin,
-		Georgia, Times, "Times New Roman", serif;
+	--secondary-type: "Editorial", "Lastik", "Playfair Display", Cambria, Cochin, Georgia, Times,
+		"Times New Roman", serif;
 	--tertiary-type: "Dico Mono Script", "Courier New", Courier, monospace;
 
 	/* Size */
 	--fs-root: clamp(1.125rem, calc(0.5rem + 0.723vw), calc(0.5rem + 0.723vw));
-	--fs-display: 7.954545rem;
 	--fs-display: clamp(3rem, calc(0.5rem + 8.622vw), calc(0.5rem + 8.622vw));
-	// --fs-A: 4.772727rem;
-	--fs-A: clamp(2.75rem, calc(0.5rem + 5.008vw), calc(0.5rem + 5.008vw));
-	// --fs-B: 3.454545rem;
+	// --fs-A: clamp(2.75rem, calc(0.5rem + 5.05vw), calc(0.5rem + 5.05vw));
+	--fs-A: clamp(2.75rem, calc(0.5rem + calc(4.3vw + 2.15vh)), calc(0.5rem + calc(4.3vw + 2.15vh)));
 	--fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
-	// --fs-C: 1.954545rem;
 	--fs-C: clamp(1.625rem, calc(0.5rem + 1.8075vw), calc(0.5rem + 1.8075vw));
-	// --fs-D: 1.181818rem;
 	--fs-D: clamp(1.125rem, calc(0.5rem + 0.93vw), calc(0.5rem + 0.93vw));
 	--fs-E: var(--fs-root);
 
@@ -90,7 +86,7 @@
 	/* Tracking */
 	--ls-display: -0.05em;
 	--ls-A: -0.035em;
-	--ls-B: -0.015em;
+	--ls-B: -0.03125em;
 	--ls-C: -0.01em;
 	--ls-D: -0.005em;
 	--ls-E: 0.0075em;
@@ -98,10 +94,12 @@
 	/* -------------------------------------------------------------------------- */
 	/*                              Whitespace Units                              */
 	/* -------------------------------------------------------------------------- */
-	--gap-B: 8rem;
-	--gap-C: 4rem;
-	--gap-D: 2rem;
-	--gap-E: 1rem;
+	--gap-A: calc(var(--fs-root) * 14);
+	--gap-B: calc(var(--fs-root) * 10);
+	--gap-C: calc(var(--fs-root) * 6);
+	--gap-D: calc(var(--fs-root) * 2);
+	--gap-E: var(--fs-root);
+	--gap-F: calc(var(--fs-root) * 0.5);
 	--unit: var(--gap-E);
 
 	/* -------------------------------------------------------------------------- */
