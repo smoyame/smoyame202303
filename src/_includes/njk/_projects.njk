@@ -1,26 +1,17 @@
 <section class="main__work">
 	<h2 class="work__heading">My Work</h2>
-	<div class="work__gallery">
-		<div class="projcard">
-			<div class="projcard__copy">
-				<h3 class="projcard__title">Project Title</h3>
-				<p class="projcard__tag">Tag</p>
-			</div>
-			<a href="#" class="projcard__link-img"><img src="https://unsplash.it/640/425" alt="Test alt text." class="projcard__img"></a>
-		</div>
-		<div class="projcard">
-			<div class="projcard__copy">
-				<h3 class="projcard__title">Project Title</h3>
-				<p class="projcard__tag">Tag</p>
-			</div>
-			<a href="#" class="projcard__link-img"><img src="https://unsplash.it/640/425" alt="Test alt text." class="projcard__img"></a>
-		</div>
-		<div class="projcard">
-			<div class="projcard__copy">
-				<h3 class="projcard__title">Project Title</h3>
-				<p class="projcard__tag">Tag</p>
-			</div>
-			<a href="#" class="projcard__link-img"><img src="https://unsplash.it/640/425" alt="Test alt text." class="projcard__img"></a>
-		</div>
-	</div>
+
+	<ul class="work__gallery">
+		{% for project in projects %}
+		<li class="proj-card start{{project.placement.start}} end{{project.placement.end}}">
+			<a class="proj-card__linked-wrapper" href="projects/{{ project.title | slugify }}">
+				<div class="proj-card__copy">
+					<h3 class="proj-card__title">{{project.title}}</h3>
+					<p class="proj-card__tag">{{project.tags[0]}}</p>
+				</div>
+				<div class="image-wrapper"><img class="image" src="https://unsplash.it/640/425" alt="Test alt text." class="proj-card__img"></div>
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
 </section>
