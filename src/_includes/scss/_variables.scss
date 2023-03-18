@@ -72,14 +72,14 @@ $colors: (
 	--fs-A: clamp(2.75rem, calc(0.5rem + calc(4.3vw + 2.15vh)), calc(0.5rem + calc(4.3vw + 2.15vh)));
 	--fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
 	--fs-C: clamp(1.625rem, calc(0.5rem + 1.8075vw), calc(0.5rem + 1.8075vw));
-	--fs-D: clamp(1.125rem, calc(0.5rem + 0.93vw), calc(0.5rem + 0.93vw));
+	--fs-D: clamp(1.125rem, calc(0.5rem + 0.939vw), calc(0.5rem + 0.939vw));
 	--fs-E: var(--fs-root);
 
 	/* Leading */
 	--lh-display: 0.95;
 	--lh-A: 1.06;
 	--lh-B: 1.25;
-	--lh-C: 1.24;
+	--lh-C: 1.25;
 	--lh-D: 1.52;
 	--lh-E: 1.5;
 
@@ -87,7 +87,7 @@ $colors: (
 	--ls-display: -0.05em;
 	--ls-A: -0.035em;
 	--ls-B: -0.03125em;
-	--ls-C: -0.01em;
+	--ls-C: -0.015em;
 	--ls-D: -0.005em;
 	--ls-E: 0.0075em;
 
