@@ -19,7 +19,7 @@ eleventyComputed:
   </div>
 </section>
 <div class="proj__cover">
-  <img class="hero-cover__img" src="{{p.coverURL}}" alt="{{p.cover.alt}}">
+  <img class="hero-cover__img" src="{{p.cover.URL}}" alt="{{p.cover.alt}}">
 </div>
 <section class="proj__copy-intro">
   <h2>{{p.info.prompt}}</h2>
@@ -28,5 +28,7 @@ eleventyComputed:
   </div>
 </section>
 <section class="proj__gallery">
-  <!-- Outcome images here -->
+  {% for piece in p.content %}
+  <img class="hero-cover__img" src="{{ piece.item.URL }}" alt="{{ piece.item.alt }}">
+  {% endfor %}
 </section>
