@@ -13,8 +13,8 @@ export default {
       title: 'Copy',
     },
     {
-      name: 'media',
-      title: 'Media',
+      name: 'assets',
+      title: 'Assets',
     },
   ],
   initialValue: {
@@ -52,7 +52,7 @@ export default {
       type: 'file',
       accept: ['png', 'mp4', 'gif', 'jpg', 'jpeg'],
       fields: [{name: 'alt', title: 'Alt Text', type: 'string'}],
-      group: ['media', 'home'],
+      group: ['assets', 'home'],
     },
     {
       name: 'info',
@@ -111,7 +111,7 @@ export default {
       type: 'array',
       of: [
         {
-          name: 'media',
+          name: 'mediaBlock',
           title: 'Media Block',
           type: 'object',
           fields: [
@@ -121,7 +121,6 @@ export default {
               type: 'file',
               accept: ['png', 'mp4', 'gif', 'jpg', 'jpeg'],
               fields: [{name: 'alt', title: 'Alt Text', type: 'string'}],
-              group: 'media',
             },
           ],
         },
@@ -134,7 +133,6 @@ export default {
               name: 'text',
               title: 'Text',
               type: 'text',
-              group: 'copy',
             },
           ],
         },
