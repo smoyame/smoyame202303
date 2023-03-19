@@ -327,6 +327,61 @@ img {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                             INDIV PROJECT PAGE                             */
+/* -------------------------------------------------------------------------- */
+
+// .proj__hero {
+// 	display: flex;
+// 	gap: var(--unit);
+// }
+
+.hero__title {
+	@include typelvl(A);
+}
+
+.proj__copy-intro {
+	padding-bottom: var(--gap-C);
+}
+
+.copy__prompt {
+	@include typelvl(B);
+	font-family: var(--secondary-type);
+	padding-block: var(--gap-C);
+}
+
+.copy__details-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--unit);
+}
+
+.copy__grafs,
+.copy__tags-wrapper {
+	min-width: min(30ch, 100%);
+}
+
+.copy__grafs {
+	order: 2;
+	@include typelvl(C);
+	flex: 2 1 49%;
+}
+
+.copy__tags-wrapper {
+	font-family: var(--secondary-type);
+	flex: 2 1 49%;
+}
+
+.copy__tags-header {
+	font-family: var(--primary-type);
+	margin-bottom: 1em;
+}
+
+.copy__tag::after {
+	content: "_";
+	margin-right: 1em;
+}
+
+/* -------------------------------------------------------------------------- */
 /*                                   FOOTER                                   */
 /* -------------------------------------------------------------------------- */
 

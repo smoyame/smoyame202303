@@ -133,7 +133,7 @@ textarea {
   --fs-display: clamp(3rem, calc(0.5rem + 8.622vw), calc(0.5rem + 8.622vw));
   --fs-A: clamp(2.75rem, calc(0.5rem + calc(4.3vw + 2.15vh)), calc(0.5rem + calc(4.3vw + 2.15vh)));
   --fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
-  --fs-C: clamp(1.625rem, calc(0.5rem + 1.5025vw), calc(0.5rem + 1.5025vw));
+  --fs-C: clamp(1.625rem, calc(0.5rem + 1.2025vw), calc(0.5rem + 1.2025vw));
   --fs-D: clamp(1.125rem, calc(0.5rem + 0.939vw), calc(0.5rem + 0.939vw));
   --fs-E: var(--fs-root);
   /* Leading */
@@ -569,6 +569,61 @@ img {
   font-size: var(--fs-D);
   letter-spacing: var(--ls-D);
   line-height: var(--lh-D);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             INDIV PROJECT PAGE                             */
+/* -------------------------------------------------------------------------- */
+.hero__title {
+  font-size: var(--fs-A);
+  letter-spacing: var(--ls-A);
+  line-height: var(--lh-A);
+}
+
+.proj__copy-intro {
+  padding-bottom: var(--gap-C);
+}
+
+.copy__prompt {
+  font-size: var(--fs-B);
+  letter-spacing: var(--ls-B);
+  line-height: var(--lh-B);
+  font-family: var(--secondary-type);
+  padding-block: var(--gap-C);
+}
+
+.copy__details-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--unit);
+}
+
+.copy__grafs,
+.copy__tags-wrapper {
+  min-width: min(30ch, 100%);
+}
+
+.copy__grafs {
+  order: 2;
+  font-size: var(--fs-C);
+  letter-spacing: var(--ls-C);
+  line-height: var(--lh-C);
+  flex: 2 1 49%;
+}
+
+.copy__tags-wrapper {
+  font-family: var(--secondary-type);
+  flex: 2 1 49%;
+}
+
+.copy__tags-header {
+  font-family: var(--primary-type);
+  margin-bottom: 1em;
+}
+
+.copy__tag::after {
+  content: "_";
+  margin-right: 1em;
 }
 
 /* -------------------------------------------------------------------------- */
