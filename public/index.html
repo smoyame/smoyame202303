@@ -25,12 +25,12 @@
 
     <header class="header">
 
-	<a href="/" class="logotype">Sami Moya Medina</a>
+	<a class="logotype" href="/" data-cursor-class="arrow">Sami Moya Medina</a>
 	<nav class="nav">
 		<ul class="nav__wrapper">
-			<li class="nav__item"><a class="nav__link" href="/#work">Work</a></li>
-			<li class="nav__item"><a class="nav__link" href="/sketchbook">Sketchbook</a></li>
-			<li class="nav__item"><a class="nav__link" href="/about">About</a></li>
+			<li class="nav__item"><a class="nav__link" href="/#work" data-cursor-class="arrow">Work</a></li>
+			<li class="nav__item"><a class="nav__link" href="/sketchbook" data-cursor-class="arrow">Sketchbook</a></li>
+			<li class="nav__item"><a class="nav__link" href="/about" data-cursor-class="arrow">About</a></li>
 		</ul>
 	</nav>
 
@@ -63,7 +63,7 @@
 	<ul class="work__gallery">
 		
 		<li class="proj-card start1 end7">
-			<a class="proj-card__linked-wrapper" href="projects/time-blinds">
+			<a class="proj-card__linked-wrapper" href="projects/time-blinds" data-cursor-class="arrow">
 				<div class="proj-card__copy">
 					<h3 class="proj-card__title">Time Blinds</h3>
 					<p class="proj-card__tag">Design</p>
@@ -73,7 +73,7 @@
 		</li>
 		
 		<li class="proj-card start9 end13">
-			<a class="proj-card__linked-wrapper" href="projects/valivaryus">
+			<a class="proj-card__linked-wrapper" href="projects/valivaryus" data-cursor-class="arrow">
 				<div class="proj-card__copy">
 					<h3 class="proj-card__title">Valivaryus</h3>
 					<p class="proj-card__tag">Web Development</p>
@@ -83,7 +83,7 @@
 		</li>
 		
 		<li class="proj-card start5 end9">
-			<a class="proj-card__linked-wrapper" href="projects/personal-website">
+			<a class="proj-card__linked-wrapper" href="projects/personal-website" data-cursor-class="arrow">
 				<div class="proj-card__copy">
 					<h3 class="proj-card__title">Personal Website</h3>
 					<p class="proj-card__tag">Web Design</p>
@@ -103,7 +103,7 @@
 			<p>Beatae ex, eos iusto harum possimus voluptatum quam unde illo omnis itaque explicabo odit cupiditate!</p>
 		</div>
 		<div class="about__copy-link">
-			<a href="#">My experience &rarr;</a>
+			<a href="#" data-cursor-class="arrow">My experience &rarr;</a>
 		</div>
 	</div>
 </section>
@@ -167,8 +167,12 @@
 </footer>
 
   </div>
+  <!-- Cursor -->
+  <div id="cursor" aria-hidden="true" data-scroll-sticky>
+    <div class="cursor__circle" aria-hidden="true"></div>
+  </div>
   <!-- Scripts -->
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 
 </body>
 
