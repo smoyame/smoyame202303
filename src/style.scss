@@ -45,22 +45,15 @@
 @each $colorName, $hslValue in variables.$colors {
 	.#{$colorName} {
 		@if ($colorName == "pensive" or $colorName == "poder" or $colorName == "night") {
+			--foreground-hsl: var(--hsl-bright);
 			--foreground-color: var(--main-bright);
 		} @else {
+			--foreground-hsl: var(--hsl-night);
 			--foreground-color: var(--main-night);
 		}
+		--background-hsl: var(--hsl-#{$colorName});
 		--background-color: var(--main-#{$colorName});
 	}
-}
-
-.bright {
-	--foreground-color: var(--main-night);
-	--background-color: var(--main-bright);
-}
-
-.dark {
-	--foreground-color: var(--main-bright);
-	--background-color: var(--main-night);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -134,34 +127,87 @@ img {
 /* -------------------------------------------------------------------------- */
 /*                                   HEADER                                   */
 
-.header {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	position: fixed;
-	// z-index: 100;
-	// color: var(--background-color);
-	// mix-blend-mode: difference;
-}
-
-.logotype {
-	display: block;
-	height: fit-content;
-}
-
 .logotype,
 .nav__link {
 	text-decoration: none;
 }
 
-.nav__wrapper {
-	padding-bottom: var(--gap-F);
-	border-bottom: var(--border);
+.nav {
+	// because it spans the whole width and blocks a band
+	pointer-events: none;
+	//
+	position: fixed;
+	bottom: 1rem;
+	inset-inline: 0;
+	@include typelvl(E);
+	//
+	display: flex;
+	justify-content: center;
 }
 
-.nav__item {
-	text-align: end;
+.nav__wrapper {
+	pointer-events: all;
+	//
+	padding: 0.6rem 0.85rem 0.425rem 0.85rem;
+	display: flex;
+	column-gap: 1rem;
+	border-radius: var(--border-radius);
+	overflow: hidden;
+	position: relative;
+	color: var(--foreground-color);
+	//
+	// box-shadow: 0px 2px 10px hsla(var(--foreground-hsl), 0.2);
 }
+
+.nav__wrapper::before,
+.nav__wrapper::after {
+	content: "";
+	display: block;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.nav__wrapper::before {
+	background-color: hsla(var(--background-hsl), 0.6);
+	z-index: -10;
+}
+
+.nav__wrapper::after {
+	background-color: none;
+	backdrop-filter: blur(8px);
+	z-index: -20;
+}
+
+// .header {
+// 	width: 100%;
+// 	display: flex;
+// 	justify-content: space-between;
+// 	position: fixed;
+// 	// z-index: 100;
+// 	// color: var(--background-color);
+// 	// mix-blend-mode: difference;
+// }
+
+// .logotype {
+// 	display: block;
+// 	height: fit-content;
+// }
+
+// .logotype,
+// .nav__link {
+// 	text-decoration: none;
+// }
+
+// .nav__wrapper {
+// 	padding-bottom: var(--gap-F);
+// 	border-bottom: var(--border);
+// }
+
+// .nav__item {
+// 	text-align: end;
+// }
 
 /* -------------------------------------------------------------------------- */
 /*                                HERO SECTION                                */
@@ -207,6 +253,10 @@ img {
 /* -------------------------------------------------------------------------- */
 /*                              HOME WORK GALLERY                             */
 
+.main__work {
+	scroll-margin-top: var(--gap-C);
+}
+
 .work__heading {
 	display: none;
 }
@@ -240,8 +290,7 @@ img {
 }
 
 .proj-card__tag {
-	position: relative;
-	top: -0.123em;
+	margin-top: -0.26rem;
 	//
 	white-space: nowrap;
 }
@@ -442,6 +491,42 @@ img {
 	display: block;
 	width: 100%;
 	background-color: (--foreground-color);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                                                            */
+/*                                                                            */
+/*                                     NAV                                    */
+/*                                                                            */
+/*                                                                            */
+/* -------------------------------------------------------------------------- */
+
+@media (min-width: 500px) {
+	.header {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		position: fixed;
+	}
+
+	.logotype {
+		display: block;
+		height: fit-content;
+	}
+
+	.logotype,
+	.nav__link {
+		text-decoration: none;
+	}
+
+	.nav__wrapper {
+		padding-bottom: var(--gap-F);
+		border-bottom: var(--border);
+	}
+
+	.nav__item {
+		text-align: end;
+	}
 }
 
 /* -------------------------------------------------------------------------- */
