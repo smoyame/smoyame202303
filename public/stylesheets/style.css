@@ -509,17 +509,19 @@ img {
   padding-block: var(--gap-A);
 }
 
+.about__heading,
+.about__copy {
+  min-width: min(27.5rem, 100%);
+}
+
 .about__heading {
-  min-width: -moz-max-content;
-  min-width: max-content;
   /*50% activates wrap w flex-wrap, little less to go just under (Width - Gap)/2 but maintain 1:1 ratio */
-  flex: 1 1 45%;
+  flex: 1 0 0%;
 }
 
 .about__copy {
-  min-width: 38ch;
   /*50% activates wrap w flex-wrap, little less to go just under (Width - Gap)/2 but maintain 1:1 ratio */
-  flex: 1 1 45%;
+  flex: 1 1 0%;
 }
 
 .about__copy-grafs {
