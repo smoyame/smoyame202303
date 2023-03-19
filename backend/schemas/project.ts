@@ -49,8 +49,7 @@ export default {
     {
       name: 'cover',
       title: 'Cover Image',
-      type: 'file',
-      accept: ['png', 'mp4', 'gif', 'jpg', 'jpeg'],
+      type: 'image',
       fields: [{name: 'alt', title: 'Alt Text', type: 'string'}],
       group: ['assets', 'home'],
     },
@@ -118,8 +117,7 @@ export default {
             {
               name: 'item',
               title: 'Item',
-              type: 'file',
-              accept: ['png', 'mp4', 'gif', 'jpg', 'jpeg'],
+              type: 'image',
               fields: [{name: 'alt', title: 'Alt Text', type: 'string'}],
             },
           ],
