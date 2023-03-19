@@ -7,6 +7,15 @@ pagination:
 permalink: "projects/{{ p.title | slugify }}/"
 eleventyComputed:
   title: '{{ p.title }}'
+  theme: '{{ p.theme }}'
 ---
 
-<h1>{{ p.title }}</h1>
+<section class="proj__hero">
+  <h1>{{ p.title }}</h1>
+  <img src="{{ p.coverURL }}" alt="{{ p.cover.alt }}">
+  <div class="hero__tags">
+    {% for tag in p.tags %}
+    <span class="hero__tags__tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+</section>

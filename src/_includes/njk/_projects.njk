@@ -9,7 +9,7 @@
 					<h3 class="proj-card__title">{{project.title}}</h3>
 					<p class="proj-card__tag">{{project.tags[0]}}</p>
 				</div>
-				<div class="image-wrapper"><img class="image" src="https://unsplash.it/640/425" alt="Test alt text." class="proj-card__img"></div>
+				<div class="image-wrapper"><img class="image" src="{{ project.coverURL }}" alt="{{ project.cover.alt }}" class="proj-card__img"></div>
 			</a>
 		</li>
 		{% endfor %}
