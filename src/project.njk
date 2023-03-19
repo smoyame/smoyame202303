@@ -12,10 +12,21 @@ eleventyComputed:
 
 <section class="proj__hero">
   <h1>{{ p.title }}</h1>
-  <img src="{{ p.coverURL }}" alt="{{ p.cover.alt }}">
   <div class="hero__tags">
     {% for tag in p.tags %}
     <span class="hero__tags__tag">{{ tag }}</span>
     {% endfor %}
   </div>
+</section>
+<div class="proj__cover">
+  <img class="hero-cover__img" src="{{p.coverURL}}" alt="{{p.cover.alt}}">
+</div>
+<section class="proj__copy-intro">
+  <h2>{{p.info.prompt}}</h2>
+  <div class="copy__grafs">
+    <p>{{p.info.desc}}</p>
+  </div>
+</section>
+<section class="proj__gallery">
+  <!-- Outcome images here -->
 </section>
