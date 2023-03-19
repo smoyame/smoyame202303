@@ -25,12 +25,12 @@
 
     <header class="header">
 
-	<a href="/" class="logotype">Sami Moya Medina</a>
+	<a class="logotype" href="/" data-cursor-class="arrow">Sami Moya Medina</a>
 	<nav class="nav">
 		<ul class="nav__wrapper">
-			<li class="nav__item"><a class="nav__link" href="/#work">Work</a></li>
-			<li class="nav__item"><a class="nav__link" href="/sketchbook">Sketchbook</a></li>
-			<li class="nav__item"><a class="nav__link" href="/about">About</a></li>
+			<li class="nav__item"><a class="nav__link" href="/#work" data-cursor-class="arrow">Work</a></li>
+			<li class="nav__item"><a class="nav__link" href="/sketchbook" data-cursor-class="arrow">Sketchbook</a></li>
+			<li class="nav__item"><a class="nav__link" href="/about" data-cursor-class="arrow">About</a></li>
 		</ul>
 	</nav>
 
@@ -130,8 +130,12 @@ My research and interviews led my initial concept to shift and morph from its or
 </footer>
 
   </div>
+  <!-- Cursor -->
+  <div id="cursor" aria-hidden="true" data-scroll-sticky>
+    <div class="cursor__circle" aria-hidden="true"></div>
+  </div>
   <!-- Scripts -->
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 
 </body>
 
