@@ -39,7 +39,7 @@ module.exports = function () { return __awaiter(void 0, void 0, void 0, function
     var response, json;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("https://vzl61mfy.api.sanity.io/v2021-06-07/data/query/production?query=*[_type == 'selectWork']{list[]->}.list[]")];
+            case 0: return [4 /*yield*/, fetch("https://vzl61mfy.api.sanity.io/v2021-06-07/data/query/production?query=*[_type == 'selectWork']{list[]->}.list[]{...,'coverURL':cover.asset->url}")];
             case 1:
                 response = _a.sent();
                 if (!response.ok) {
@@ -48,7 +48,6 @@ module.exports = function () { return __awaiter(void 0, void 0, void 0, function
                 return [4 /*yield*/, response.json()];
             case 2:
                 json = _a.sent();
-                console.log("❤");
                 return [2 /*return*/, json.result];
         }
     });
