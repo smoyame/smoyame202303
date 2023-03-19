@@ -476,7 +476,7 @@ img {
 /*                                                                            */
 /* -------------------------------------------------------------------------- */
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
 	.header {
 		width: 100%;
 		display: flex;
@@ -494,13 +494,38 @@ img {
 		text-decoration: none;
 	}
 
+	.nav {
+		/* unset mobile as needed */
+		position: unset;
+		bottom: unset;
+		inset-inline: unset;
+		pointer-events: unset;
+		/**/
+	}
+
 	.nav__wrapper {
+		/* unset mobile as needed */
+		flex-direction: column;
+		box-shadow: none;
+		color: unset;
+		border-radius: unset;
+		/**/
 		padding-bottom: var(--gap-F);
-		// border-bottom: var(--border);
+		border-bottom: var(--border);
+	}
+
+	.nav__wrapper::before,
+	.nav__wrapper::after {
+		content: none;
 	}
 
 	.nav__item {
 		text-align: end;
+	}
+
+	.nav__link {
+		display: block;
+		padding: unset;
 	}
 }
 
