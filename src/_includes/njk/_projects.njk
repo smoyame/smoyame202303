@@ -1,6 +1,7 @@
+{% set srcsetWidths = [450, 900, 1200, 1500, 1800, 2500] %}
+{% set srcsetSizes = ['(max-width: 400)', '(max-width: 800)', '(max-width: 1100)', '(max-width: 1400)', '(max-width: 2000)', '(min-width: 2001)'] %}
 <section class="main__work" id="work">
 	<h2 class="work__heading">My Work</h2>
-
 	<ul class="work__gallery">
 		{% for project in projects %}
 		<li class="proj-card start{{project.placement.start}} end{{project.placement.end}}">
@@ -9,7 +10,7 @@
 					<h3 class="proj-card__title">{{project.title}}</h3>
 					<p class="proj-card__tag">{{project.tags[0]}}</p>
 				</div>
-				<div class="image-wrapper"><img class="image" src="{{ project.cover.URL }}" alt="{{ project.cover.alt }}" class="proj-card__img"></div>
+				<div class="image-wrapper"><img class="image" srcset="{% for i in range(0, srcsetWidths.length) %}{{project.cover.URL}}?w={{ srcsetWidths[i] }} {{ srcsetWidths[i] }}w{% if (i == srcsetWidths.length) %}{% else %}, {% endif %}{% endfor %}" sizes="{% for i in range(0, srcsetWidths.length) %}{{srcsetSizes[i]}} {{ srcsetWidths[i] }}px{% if (i == srcsetWidths.length) %}{% elseif (i !== srcsetWidths.length) %}, {% endif %}{% endfor %}" alt="{{ project.cover.alt }}"></div>
 			</a>
 		</li>
 		{% endfor %}

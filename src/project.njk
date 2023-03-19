@@ -9,7 +9,8 @@ eleventyComputed:
   title: '{{ p.title }}'
   theme: '{{ p.theme }}'
 ---
-
+{% set srcsetWidths = [450, 900, 1200, 1500, 1800, 2500] %}
+{% set srcsetSizes = ['(max-width: 400)', '(max-width: 800)', '(max-width: 1100)', '(max-width: 1400)', '(max-width: 2000)', '(min-width: 2001)'] %}
 <section class="proj__hero">
   <h1>{{ p.title }}</h1>
   <div class="hero__tags">
@@ -19,7 +20,7 @@ eleventyComputed:
   </div>
 </section>
 <div class="proj__cover">
-  <img class="hero-cover__img" src="{{p.cover.URL}}" alt="{{p.cover.alt}}">
+  <img class="hero-cover__img" srcset="{% for i in range(0, srcsetWidths.length) %}{{p.cover.URL}}?w={{ srcsetWidths[i] }} {{ srcsetWidths[i] }}w{% if (i == srcsetWidths.length) %}{% else %}, {% endif %}{% endfor %}" sizes="{% for i in range(0, srcsetWidths.length) %}{{srcsetSizes[i]}} {{ srcsetWidths[i] }}px{% if (i == srcsetWidths.length) %}{% elseif (i !== srcsetWidths.length) %}, {% endif %}{% endfor %}" alt="{{p.cover.alt}}">
 </div>
 <section class="proj__copy-intro">
   <h2>{{p.info.prompt}}</h2>
@@ -29,6 +30,6 @@ eleventyComputed:
 </section>
 <section class="proj__gallery">
   {% for piece in p.content %}
-  <img class="hero-cover__img" src="{{ piece.item.URL }}" alt="{{ piece.item.alt }}">
+  <img class="hero-cover__img" srcset="{{ piece.item.URL }}" sizes alt="{{ piece.item.alt }}">
   {% endfor %}
 </section>
