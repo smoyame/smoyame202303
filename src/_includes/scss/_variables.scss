@@ -73,7 +73,9 @@ $colors: (
 	--fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
 	// --fs-C: clamp(1.625rem, calc(0.5rem + 1.8075vw), calc(0.5rem + 1.8075vw));
 	// // ^ real value from des doc | v test values for live
-	--fs-C: clamp(1.625rem, calc(0.5rem + 1.5025vw), calc(0.5rem + 1.5025vw));
+	// --fs-C: clamp(1.625rem, calc(0.5rem + 1.5025vw), calc(0.5rem + 1.5025vw));
+	// // v more testing smaller
+	--fs-C: clamp(1.625rem, calc(0.5rem + 1.2025vw), calc(0.5rem + 1.2025vw));
 	--fs-D: clamp(1.125rem, calc(0.5rem + 0.939vw), calc(0.5rem + 0.939vw));
 	--fs-E: var(--fs-root);
 
