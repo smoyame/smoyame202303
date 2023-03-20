@@ -5,9 +5,100 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'mainName',
-      type: 'string',
-      title: 'Preferred Name',
+      name: 'name',
+      title: 'Names',
+      type: 'object',
+      fields: [
+        {
+          name: 'first',
+          title: 'First',
+          type: 'string',
+        },
+        {
+          name: 'last',
+          title: 'Last',
+          type: 'string',
+        },
+      ],
+    },
+    {
+      name: 'homeGrafs',
+      title: 'Homepage Text',
+      description:
+        'This will be the summary shown on the homepage. It will have a link at the bottom that redirects to the dedicated About page.',
+      type: 'array',
+      of: [{type: 'block'}],
+    },
+    {
+      name: 'pageGrafs',
+      title: 'Introduction Text',
+      description: 'These grafs will show up on the individual About page.',
+      type: 'array',
+      of: [{type: 'block'}],
+    },
+    {
+      name: 'exp',
+      title: 'Experience',
+      type: 'array',
+      of: [
+        {
+          name: 'job',
+          title: 'Job Experience',
+          type: 'object',
+          fields: [
+            {
+              name: 'company',
+              title: 'Company',
+              type: 'string',
+            },
+            {
+              name: 'title',
+              title: 'Job Title',
+              type: 'string',
+            },
+            {
+              name: 'dates',
+              title: 'Date Range',
+              type: 'object',
+              fields: [
+                {
+                  name: 'start',
+                  title: 'Start',
+                  type: 'date',
+                  options: {
+                    dateFormat: 'MM, YYYY',
+                  },
+                },
+                {
+                  name: 'end',
+                  title: 'End',
+                  type: 'date',
+                  options: {
+                    dateFormat: 'MM, YYYY',
+                  },
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: 'freelance',
+          title: 'Freelance Experience',
+          type: 'object',
+          fields: [
+            {
+              name: 'client',
+              title: 'Client',
+              type: 'string',
+            },
+            {
+              name: 'scope',
+              title: 'Job Scope',
+              type: 'text',
+            },
+          ],
+        },
+      ],
     },
   ],
 }
