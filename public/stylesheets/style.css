@@ -366,17 +366,6 @@ textarea {
     background-color: var(--main-vibing);
   }
 }
-.fake-grid {
-  display: grid;
-  grid-template-columns: var(--grid-col-setting);
-  gap: var(--unit);
-  position: fixed;
-  top: 0;
-  height: 100%;
-  width: calc(100% - var(--gap-E) * 2);
-  pointer-events: none;
-}
-
 /* -------------------------------------------------------------------------- */
 /*                                                                            */
 /*                                                                            */
