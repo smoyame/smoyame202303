@@ -70,12 +70,14 @@ $colors: (
 	--fs-display: clamp(3rem, calc(0.5rem + 8.622vw), calc(0.5rem + 8.622vw));
 	// --fs-A: clamp(2.75rem, calc(0.5rem + 5.05vw), calc(0.5rem + 5.05vw));
 	--fs-A: clamp(2.75rem, calc(0.5rem + calc(4.3vw + 2.15vh)), calc(0.5rem + calc(4.3vw + 2.15vh)));
-	--fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
+	--fs-B: clamp(2.25rem, calc(0.5rem + 3.75vw), calc(0.5rem + 3.75vw));
+	// ^ tester new larger / v from design doc
+	// --fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
 	// --fs-C: clamp(1.625rem, calc(0.5rem + 1.8075vw), calc(0.5rem + 1.8075vw));
 	// // ^ real value from des doc | v test values for live
-	// --fs-C: clamp(1.625rem, calc(0.5rem + 1.5025vw), calc(0.5rem + 1.5025vw));
+	--fs-C: clamp(1.625rem, calc(0.5rem + 1.5025vw), calc(0.5rem + 1.5025vw));
 	// // v more testing smaller
-	--fs-C: clamp(1.5rem, calc(0.5rem + 1.2025vw), calc(0.5rem + 1.2025vw));
+	// --fs-C: clamp(1.5rem, calc(0.5rem + 1.2025vw), calc(0.5rem + 1.2025vw));
 	--fs-D: clamp(1.125rem, calc(0.5rem + 0.939vw), calc(0.5rem + 0.939vw));
 	--fs-E: var(--fs-root);
 
@@ -98,7 +100,7 @@ $colors: (
 	/* -------------------------------------------------------------------------- */
 	/*                              Whitespace Units                              */
 	/* -------------------------------------------------------------------------- */
-	--gap-A: calc(var(--fs-root) * 14);
+	--gap-A: calc(var(--fs-root) * 16);
 	--gap-B: calc(var(--fs-root) * 10);
 	--gap-C: calc(var(--fs-root) * 6);
 	--gap-D: calc(var(--fs-root) * 2);
