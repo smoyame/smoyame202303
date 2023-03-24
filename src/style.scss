@@ -143,8 +143,13 @@ section {
 	min-height: 65vh;
 }
 
-p:not(footer p) {
+p,
+.about__copy-grafs {
 	margin-bottom: 1em;
+}
+
+p:last-of-type {
+	margin-bottom: 0;
 }
 
 a {
@@ -192,9 +197,14 @@ img {
 /* -------------------------------------------------------------------------- */
 /*                                   HEADER                                   */
 
+.header {
+	pointer-events: none;
+}
+
 .logotype,
 .nav__link {
 	text-decoration: none;
+	pointer-events: all;
 }
 
 .nav {
@@ -297,6 +307,10 @@ img {
 
 .work__heading {
 	display: none;
+}
+
+.work__gallery {
+	row-gap: calc(2rem + var(--gap-D));
 }
 
 .proj-card__linked-wrapper {
@@ -460,22 +474,80 @@ img {
 /*                              INDIV ABOUT PAGE                              */
 /* -------------------------------------------------------------------------- */
 
+.about__intro,
+.about__experience {
+	padding-bottom: var(--gap-A);
+}
+
 .about__intro {
 	display: flex;
+	flex-wrap: wrap;
+	gap: var(--unit);
 }
 
-.about__heading {
-	display: none;
+.about__intro-heading,
+.about__intro-copy {
+	min-width: 20ch;
 }
 
-.about__intro-wrapper {
+.about__intro-heading {
+	visibility: hidden;
+	flex: 1 1 20%;
+}
+
+.about__experience {
+	@include typelvl(D);
+}
+
+.about__intro-copy {
+	flex: 1 1 70.5%;
+}
+
+.about__intro-copy {
 	padding-top: 45vh;
-	margin-inline: auto 0;
-	flex: 0 1 75%;
 }
 
 .about__graf {
 	@include typelvl(B);
+}
+
+.about__exp-wrapper {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: var(--unit);
+}
+
+.exp__heading {
+	@include typelvl(B);
+	// font-family: var(--secondary-type);
+	grid-column: 1 / span 2;
+}
+
+.exp__list {
+	grid-column: 4 / -1;
+}
+
+.about__experience,
+.exp__item {
+	font-weight: 300;
+}
+
+.exp__item {
+	margin-bottom: var(--gap-D);
+}
+
+.exp__item-heading {
+	@include typelvl(C);
+	font-weight: 400;
+}
+
+.exp__item-subheading,
+.exp__item-scope {
+	margin-bottom: 0;
+}
+
+.exp__item-dates {
+	@include typelvl(E);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -704,7 +776,13 @@ img {
 @media (min-width: 950px) {
 	.work__gallery {
 		display: grid;
-		gap: var(--unit);
+		// gap: var(--unit);
 		grid-template-columns: var(--grid-col-setting);
+		grid-auto-flow: row dense;
+	}
+
+	.proj-card:nth-child(1),
+	.proj-card:nth-child(2) {
+		grid-row-start: 1;
 	}
 }

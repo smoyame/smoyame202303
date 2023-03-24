@@ -132,8 +132,8 @@ textarea {
   --fs-root: clamp(1.125rem, calc(0.5rem + 0.723vw), calc(0.5rem + 0.723vw));
   --fs-display: clamp(3rem, calc(0.5rem + 8.622vw), calc(0.5rem + 8.622vw));
   --fs-A: clamp(2.75rem, calc(0.5rem + calc(4.3vw + 2.15vh)), calc(0.5rem + calc(4.3vw + 2.15vh)));
-  --fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
-  --fs-C: clamp(1.5rem, calc(0.5rem + 1.2025vw), calc(0.5rem + 1.2025vw));
+  --fs-B: clamp(2.25rem, calc(0.5rem + 3.75vw), calc(0.5rem + 3.75vw));
+  --fs-C: clamp(1.625rem, calc(0.5rem + 1.5025vw), calc(0.5rem + 1.5025vw));
   --fs-D: clamp(1.125rem, calc(0.5rem + 0.939vw), calc(0.5rem + 0.939vw));
   --fs-E: var(--fs-root);
   /* Leading */
@@ -153,7 +153,7 @@ textarea {
   /* -------------------------------------------------------------------------- */
   /*                              Whitespace Units                              */
   /* -------------------------------------------------------------------------- */
-  --gap-A: calc(var(--fs-root) * 14);
+  --gap-A: calc(var(--fs-root) * 16);
   --gap-B: calc(var(--fs-root) * 10);
   --gap-C: calc(var(--fs-root) * 6);
   --gap-D: calc(var(--fs-root) * 2);
@@ -366,6 +366,17 @@ textarea {
     background-color: var(--main-vibing);
   }
 }
+.fake-grid {
+  display: grid;
+  grid-template-columns: var(--grid-col-setting);
+  gap: var(--unit);
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: calc(100% - var(--gap-E) * 2);
+  pointer-events: none;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                                                            */
 /*                                                                            */
@@ -394,8 +405,13 @@ section {
   min-height: 65vh;
 }
 
-p:not(footer p) {
+p,
+.about__copy-grafs {
   margin-bottom: 1em;
+}
+
+p:last-of-type {
+  margin-bottom: 0;
 }
 
 a {
@@ -441,9 +457,14 @@ img {
 
 /* -------------------------------------------------------------------------- */
 /*                                   HEADER                                   */
+.header {
+  pointer-events: none;
+}
+
 .logotype,
 .nav__link {
   text-decoration: none;
+  pointer-events: all;
 }
 
 .nav {
@@ -544,6 +565,10 @@ img {
 
 .work__heading {
   display: none;
+}
+
+.work__gallery {
+  row-gap: calc(2rem + var(--gap-D));
 }
 
 .proj-card__linked-wrapper {
@@ -694,24 +719,89 @@ img {
 /* -------------------------------------------------------------------------- */
 /*                              INDIV ABOUT PAGE                              */
 /* -------------------------------------------------------------------------- */
+.about__intro,
+.about__experience {
+  padding-bottom: var(--gap-A);
+}
+
 .about__intro {
   display: flex;
+  flex-wrap: wrap;
+  gap: var(--unit);
 }
 
-.about__heading {
-  display: none;
+.about__intro-heading,
+.about__intro-copy {
+  min-width: 20ch;
 }
 
-.about__intro-wrapper {
+.about__intro-heading {
+  visibility: hidden;
+  flex: 1 1 20%;
+}
+
+.about__experience {
+  font-size: var(--fs-D);
+  letter-spacing: var(--ls-D);
+  line-height: var(--lh-D);
+}
+
+.about__intro-copy {
+  flex: 1 1 70.5%;
+}
+
+.about__intro-copy {
   padding-top: 45vh;
-  margin-inline: auto 0;
-  flex: 0 1 75%;
 }
 
 .about__graf {
   font-size: var(--fs-B);
   letter-spacing: var(--ls-B);
   line-height: var(--lh-B);
+}
+
+.about__exp-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--unit);
+}
+
+.exp__heading {
+  font-size: var(--fs-B);
+  letter-spacing: var(--ls-B);
+  line-height: var(--lh-B);
+  grid-column: 1/span 2;
+}
+
+.exp__list {
+  grid-column: 4/-1;
+}
+
+.about__experience,
+.exp__item {
+  font-weight: 300;
+}
+
+.exp__item {
+  margin-bottom: var(--gap-D);
+}
+
+.exp__item-heading {
+  font-size: var(--fs-C);
+  letter-spacing: var(--ls-C);
+  line-height: var(--lh-C);
+  font-weight: 400;
+}
+
+.exp__item-subheading,
+.exp__item-scope {
+  margin-bottom: 0;
+}
+
+.exp__item-dates {
+  font-size: var(--fs-E);
+  letter-spacing: var(--ls-E);
+  line-height: var(--lh-E);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -922,7 +1012,11 @@ img {
 @media (min-width: 950px) {
   .work__gallery {
     display: grid;
-    gap: var(--unit);
     grid-template-columns: var(--grid-col-setting);
+    grid-auto-flow: row dense;
+  }
+  .proj-card:nth-child(1),
+  .proj-card:nth-child(2) {
+    grid-row-start: 1;
   }
 }/*# sourceMappingURL=style.css.map */
