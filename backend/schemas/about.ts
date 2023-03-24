@@ -66,7 +66,7 @@ export default {
                   title: 'Start',
                   type: 'date',
                   options: {
-                    dateFormat: 'MM, YYYY',
+                    dateFormat: 'MM.YYYY',
                   },
                 },
                 {
@@ -74,7 +74,7 @@ export default {
                   title: 'End',
                   type: 'date',
                   options: {
-                    dateFormat: 'MM, YYYY',
+                    dateFormat: 'MM.YYYY',
                   },
                 },
               ],
@@ -95,6 +95,29 @@ export default {
               name: 'scope',
               title: 'Job Scope',
               type: 'text',
+            },
+            {
+              name: 'dates',
+              title: 'Date Range',
+              type: 'object',
+              fields: [
+                {
+                  name: 'start',
+                  title: 'Start',
+                  type: 'date',
+                  options: {
+                    dateFormat: 'MM.YYYY',
+                  },
+                },
+                {
+                  name: 'end',
+                  title: 'End',
+                  type: 'date',
+                  options: {
+                    dateFormat: 'MM.YYYY',
+                  },
+                },
+              ],
             },
           ],
         },
