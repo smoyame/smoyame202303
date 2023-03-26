@@ -45,6 +45,24 @@ export default {
           name: 'job',
           title: 'Job Experience',
           type: 'object',
+          preview: {
+            select: {
+              jobCompany: 'company',
+              jobTitle: 'title',
+              startDate: 'dates.start',
+              endDate: 'dates.end',
+              title: 'title',
+              subtitle: 'subtitle',
+            },
+            prepare(selection: any) {
+              const {jobCompany, jobTitle, startDate, endDate} = selection
+              return {
+                ...selection,
+                title: `${jobCompany} - ${jobTitle}`,
+                subtitle: `${startDate} - ${endDate}`,
+              }
+            },
+          },
           fields: [
             {
               name: 'company',
