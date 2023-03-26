@@ -84,26 +84,6 @@ export default {
       group: 'copy',
     },
     {
-      name: 'grid',
-      title: 'Homepage Card Placement',
-      type: 'object',
-      description:
-        'Choose where across the 13 grid column seperators you want the project card to span.',
-      fields: [
-        {
-          name: 'start',
-          title: 'Start',
-          type: 'number',
-        },
-        {
-          name: 'end',
-          title: 'End',
-          type: 'number',
-        },
-      ],
-      group: 'home',
-    },
-    {
       name: 'tags',
       title: 'Tags',
       type: 'array',
