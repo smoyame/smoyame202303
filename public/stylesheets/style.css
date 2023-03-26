@@ -395,7 +395,8 @@ section {
 }
 
 p,
-.about__copy-grafs {
+.about__copy-grafs,
+.text__graf {
   margin-bottom: 1em;
 }
 
@@ -408,10 +409,15 @@ a {
   text-underline-offset: 0.375em;
 }
 
+img,
+video {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
 img {
   width: 100%;
   height: 100%;
-  border-radius: var(--border-radius);
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center center;
@@ -433,6 +439,28 @@ img {
   font-size: var(--fs-B);
   letter-spacing: var(--ls-B);
   line-height: var(--lh-B);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  404 PAGE                                  */
+/* -------------------------------------------------------------------------- */
+.error-404__wrapper {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-404__display {
+  font-size: calc(3 * var(--fs-display));
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1em;
+}
+
+.error-404__header {
+  font-family: var(--tertiary-type);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -699,7 +727,9 @@ img {
 }
 
 .copy__tags-header {
-  font-family: var(--primary-type);
+  font-size: var(--fs-E);
+  letter-spacing: var(--ls-E);
+  line-height: var(--lh-E);
   margin-top: -0.25rem;
   margin-bottom: var(--gap-F);
   text-transform: uppercase;
@@ -711,14 +741,19 @@ img {
 }
 
 .proj__gallery {
-  display: grid;
   grid-template-columns: var(--grid-col-setting);
   gap: var(--gap-E);
 }
 
 .gallery__item {
-  grid-column: 1/-1;
-  margin-bottom: var(--gap-C);
+  margin-bottom: var(--gap-E);
+}
+
+.gall__text-wrapper {
+  padding-bottom: var(--gap-C);
+  font-size: var(--fs-D);
+  letter-spacing: var(--ls-D);
+  line-height: var(--lh-D);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1016,6 +1051,9 @@ img {
 /*                                   GENERAL                                  */
 /* -------------------------------------------------------------------------- */
 @media (min-width: 950px) {
+  /* -------------------------------------------------------------------------- */
+  /*                            HOMEPAGE WORK SECTION                           */
+  /* -------------------------------------------------------------------------- */
   .work__gallery {
     display: grid;
     grid-template-columns: var(--grid-col-setting);
@@ -1025,6 +1063,15 @@ img {
   .proj-card:nth-child(2) {
     grid-row-start: 1;
   }
+  /* -------------------------------------------------------------------------- */
+  /*                             INDIV PROJECT PAGE                             */
+  /* -------------------------------------------------------------------------- */
+  .proj__gallery {
+    display: grid;
+  }
+  /* -------------------------------------------------------------------------- */
+  /*                              INDIV ABOUT PAGE                              */
+  /* -------------------------------------------------------------------------- */
   .about__exp-wrapper {
     display: grid;
   }
