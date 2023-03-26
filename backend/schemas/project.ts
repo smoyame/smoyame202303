@@ -114,7 +114,7 @@ export default {
               title: 'Image Placement',
               type: 'object',
               description:
-                'Choose where across the 13 grid column seperators you want the project card to span.',
+                'Choose where across the 13 grid column seperators you want the image to span.',
               fields: [
                 {
                   name: 'start',
@@ -149,11 +149,67 @@ export default {
           name: 'textBlock',
           title: 'Text Block',
           type: 'object',
+          description:
+            'Insert a paragraph between your visual content. It should be relevant to the image that comes before or after.',
           fields: [
             {
               name: 'text',
               title: 'Text',
-              type: 'text',
+              type: 'array',
+              of: [{type: 'block'}],
+            },
+            {
+              name: 'grid',
+              title: 'Text Placement',
+              type: 'object',
+              description:
+                'Choose where across the 13 grid column seperators you want the image to span.',
+              fields: [
+                {
+                  name: 'start',
+                  title: 'Start',
+                  type: 'number',
+                },
+                {
+                  name: 'end',
+                  title: 'End',
+                  type: 'number',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: 'videoBlock',
+          title: 'Video Block',
+          type: 'object',
+          fields: [
+            {
+              name: 'video',
+              title: 'Video',
+              type: 'file',
+              options: {
+                accept: ['.mp4', '.webm'],
+              },
+            },
+            {
+              name: 'grid',
+              title: 'Video Placement',
+              type: 'object',
+              description:
+                'Choose where across the 13 grid column seperators you want the image to span.',
+              fields: [
+                {
+                  name: 'start',
+                  title: 'Start',
+                  type: 'number',
+                },
+                {
+                  name: 'end',
+                  title: 'End',
+                  type: 'number',
+                },
+              ],
             },
           ],
         },
