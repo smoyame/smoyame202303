@@ -552,6 +552,11 @@ img {
   scroll-margin-top: var(--gap-C);
 }
 
+.disable {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
 .work__heading {
   display: none;
 }
@@ -705,6 +710,17 @@ img {
   margin-right: 0.25rem;
 }
 
+.proj__gallery {
+  display: grid;
+  grid-template-columns: var(--grid-col-setting);
+  gap: var(--gap-E);
+}
+
+.gallery__item {
+  grid-column: 1/-1;
+  margin-bottom: var(--gap-C);
+}
+
 /* -------------------------------------------------------------------------- */
 /*                              INDIV ABOUT PAGE                              */
 /* -------------------------------------------------------------------------- */
@@ -750,7 +766,6 @@ img {
 }
 
 .about__exp-wrapper {
-  display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: var(--unit);
 }
@@ -759,6 +774,8 @@ img {
   font-size: var(--fs-B);
   letter-spacing: var(--ls-B);
   line-height: var(--lh-B);
+  font-family: var(--secondary-type);
+  margin-bottom: var(--gap-D);
   grid-column: 1/span 2;
 }
 
@@ -776,9 +793,9 @@ img {
 }
 
 .exp__item-heading {
-  font-size: var(--fs-C);
-  letter-spacing: var(--ls-C);
-  line-height: var(--lh-C);
+  font-size: var(--fs-D);
+  letter-spacing: var(--ls-D);
+  line-height: var(--lh-D);
   font-weight: 400;
 }
 
@@ -1007,5 +1024,8 @@ img {
   .proj-card:nth-child(1),
   .proj-card:nth-child(2) {
     grid-row-start: 1;
+  }
+  .about__exp-wrapper {
+    display: grid;
   }
 }/*# sourceMappingURL=style.css.map */
