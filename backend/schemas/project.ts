@@ -19,8 +19,16 @@ export default {
   ],
   initialValue: {
     theme: 'night',
+    live: 'true',
   },
   fields: [
+    {
+      name: 'live',
+      title: 'Go Live',
+      type: 'boolean',
+      description:
+        'Is this project OK to have a live link on the homepage? If this is off, that project card will not link anywhere and display a locked icon.',
+    },
     {
       name: 'title',
       title: 'Project',
@@ -67,7 +75,8 @@ export default {
         {
           name: 'desc',
           title: 'Description',
-          type: 'text',
+          type: 'array',
+          of: [{type: 'block'}],
           description:
             "A short summary that emphasizes the goal and what you accomplished along the way. Two to three paragraphs. Don't overwhelm them in the 5 seconds they'll read over it!",
         },
@@ -75,7 +84,7 @@ export default {
       group: 'copy',
     },
     {
-      name: 'placement',
+      name: 'grid',
       title: 'Homepage Card Placement',
       type: 'object',
       description:
@@ -120,7 +129,41 @@ export default {
               type: 'image',
               fields: [{name: 'alt', title: 'Alt Text', type: 'string'}],
             },
+            {
+              name: 'grid',
+              title: 'Image Placement',
+              type: 'object',
+              description:
+                'Choose where across the 13 grid column seperators you want the project card to span.',
+              fields: [
+                {
+                  name: 'start',
+                  title: 'Start',
+                  type: 'number',
+                },
+                {
+                  name: 'end',
+                  title: 'End',
+                  type: 'number',
+                },
+              ],
+            },
           ],
+          preview: {
+            select: {
+              unqID: '_key',
+              subtitle: 'item.alt',
+              media: 'item.asset',
+            },
+            prepare(selection: any) {
+              const {unqID} = selection
+
+              return {
+                ...selection,
+                title: `ID: ${unqID}`,
+              }
+            },
+          },
         },
         {
           name: 'textBlock',
