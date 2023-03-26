@@ -1,8 +1,13 @@
+"use strict";
 // -------------------------------------------------------------------------- //
 //                              MEDIA QUERY MATCH                             //
 // -------------------------------------------------------------------------- //
+exports.__esModule = true;
 var windowQuery = window.matchMedia("(min-width: 980px)");
-// ***** Cursor ***** //
+var gsap_1 = require("gsap");
+//* -------------------------------------------------------------------------- *//
+//*                                   CURSOR                                   *//
+//* -------------------------------------------------------------------------- *//
 if (windowQuery) {
     // ▶ cojea gabriel - thanks a bunch dude - cursor ◀
     var cursor_1 = document.querySelector("#cursor");
@@ -15,33 +20,33 @@ if (windowQuery) {
         mouse_1.y = e.clientY;
     };
     window.addEventListener("mousemove", updateCoordinates);
-    function getAngle(diffX, diffY) {
+    var getAngle_1 = function (diffX, diffY) {
         return (Math.atan2(diffY, diffX) * 180) / Math.PI;
-    }
-    function getSqueeze(diffX, diffY) {
+    };
+    var getSqueeze_1 = function (diffX, diffY) {
         var distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
         var maxSqueeze = 0.45;
         var accelerator = 1500;
         return Math.min(distance / accelerator, maxSqueeze);
-    }
+    };
     var updateCursor_1 = function () {
         var diffX = Math.round(mouse_1.x - pos_1.x);
         var diffY = Math.round(mouse_1.y - pos_1.y);
         pos_1.x += diffX * speed_1;
         pos_1.y += diffY * speed_1;
-        var angle = getAngle(diffX, diffY);
-        var squeeze = getSqueeze(diffX, diffY);
+        var angle = getAngle_1(diffX, diffY);
+        var squeeze = getSqueeze_1(diffX, diffY);
         var scale = "scale(" + (1 + squeeze) + ", " + (1 - squeeze) + ")";
         var rotate = "rotate(" + angle + "deg)";
         var translate = "translate3d(" + pos_1.x + "px ," + pos_1.y + "px, 0)";
         cursor_1.style.transform = translate;
         cursorCircle_1.style.transform = rotate + scale;
     };
-    function loop() {
+    var loop_1 = function () {
         updateCursor_1();
-        requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
+        requestAnimationFrame(loop_1);
+    };
+    requestAnimationFrame(loop_1);
     var cursorModifiers = document.querySelectorAll("[data-cursor-class]");
     cursorModifiers.forEach(function (cursorModifier) {
         cursorModifier.addEventListener("mouseenter", function () {
@@ -54,3 +59,7 @@ if (windowQuery) {
         });
     });
 }
+gsap_1.gsap.from(".container", {
+    duration: 1,
+    opacity: 0
+});

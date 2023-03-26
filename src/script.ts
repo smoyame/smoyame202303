@@ -3,8 +3,11 @@
 // -------------------------------------------------------------------------- //
 
 let windowQuery = window.matchMedia("(min-width: 980px)");
+import { gsap } from "gsap";
 
-// ***** Cursor ***** //
+//* -------------------------------------------------------------------------- *//
+//*                                   CURSOR                                   *//
+//* -------------------------------------------------------------------------- *//
 
 if (windowQuery) {
 	// ▶ cojea gabriel - thanks a bunch dude - cursor ◀
@@ -22,16 +25,16 @@ if (windowQuery) {
 
 	window.addEventListener("mousemove", updateCoordinates);
 
-	function getAngle(diffX, diffY) {
+	let getAngle = (diffX, diffY) => {
 		return (Math.atan2(diffY, diffX) * 180) / Math.PI;
-	}
+	};
 
-	function getSqueeze(diffX, diffY) {
+	let getSqueeze = (diffX, diffY) => {
 		const distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
 		const maxSqueeze = 0.45;
 		const accelerator = 1500;
 		return Math.min(distance / accelerator, maxSqueeze);
-	}
+	};
 
 	const updateCursor = () => {
 		const diffX = Math.round(mouse.x - pos.x);
@@ -51,10 +54,10 @@ if (windowQuery) {
 		cursorCircle.style.transform = rotate + scale;
 	};
 
-	function loop() {
+	let loop = () => {
 		updateCursor();
 		requestAnimationFrame(loop);
-	}
+	};
 	requestAnimationFrame(loop);
 
 	const cursorModifiers = document.querySelectorAll("[data-cursor-class]");
@@ -70,3 +73,8 @@ if (windowQuery) {
 		});
 	});
 }
+
+gsap.from(".container", {
+	duration: 1,
+	opacity: 0,
+});

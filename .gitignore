@@ -6,6 +6,7 @@ exports
 *.cache
 build
 .tsbuildinfo
+.npmrc
 
 ############################
 # OS X
