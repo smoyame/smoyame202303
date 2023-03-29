@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-		"outDir": "../public",
 		"declaration": false
 	},
 	"include": ["**/*.ts", "**/*.tsx"],

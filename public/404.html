@@ -21,8 +21,7 @@
 </head>
 
 <body class="">
-  <div class="container">
-
+  <div class="body-container">
     <header class="header">
 
 	<a class="logotype" href="/" data-cursor-class="arrow">Sami Moya Medina</a>
@@ -35,13 +34,15 @@
 	</nav>
 
 </header>
-    <main class="main">
-      <section class="error-404__wrapper">
+    <div class="contained-wrapper" id="smooth-wrapper">
+      <div class="contained-content" id="smooth-content">
+        <main class="main">
+            <section class="error-404__wrapper">
 	<h1 class="error-404__header">Woops, there's no page here!</h1>
 	<div class="error-404__display">404</div>
 </section>
-    </main>
-    <footer class="footer">
+        </main>
+        <footer class="footer">
 	<h2 class="footer__id-header">I'm on the internet!</h2>
 	<div class="footer__id__wrapper">
 		<div class="footer__id">
@@ -133,7 +134,8 @@
 	
 </div>
 </footer>
-
+      </div>
+    </div>
   </div>
   <!-- Cursor -->
   <div id="cursor" aria-hidden="true" data-scroll-sticky>
