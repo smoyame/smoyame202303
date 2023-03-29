@@ -1,12 +1,11 @@
-// SASS variables can't be scoped into a CSS selector, because they will then not be available globally for SCSS iteration wirht @for, @each, etc
 $colors: (
-	"pensive": "175, 70%, 18%",
+	"pensive": "175, 70%, 20%",
 	"poder": "216, 100%, 33%",
-	"vibing": "282, 95%, 77%",
-	"alertness": "3, 100%, 69%",
+	"vibing": "280, 95%, 70%",
+	"alertness": "358, 100%, 53%",
 	"disfruta": "335, 100%, 73%",
-	"zesty": "48, 100%, 72%",
-	"bright": "240, 26%, 89%",
+	"zesty": "33, 95%, 68%",
+	"bright": "240, 10%, 90%",
 	"night": "255, 6%, 13%",
 );
 
@@ -14,16 +13,6 @@ $colors: (
 	/* -------------------------------------------------------------------------- */
 	/*                               Color Variables                              */
 	/* -------------------------------------------------------------------------- */
-	// /* Master Reference - Source of truth for HSL values */
-	// --pensive: hsl(175, 70%, 18%);
-	// --poder: hsl(216, 100%, 33%);
-	// --vibing: hsl(282, 95%, 77%);
-	// --alertness: hsl(3, 100%, 69%);
-	// --disfruta: hsl(335, 100%, 73%);
-	// --zesty: hsl(48, 100%, 72%);
-	// //
-	// --bright: hsl(240, 26%, 89%);
-	// --night: hsl(255, 6%, 13%);
 
 	/* Raw HSL Values */
 	/* Use when alpha is necessary? */
@@ -39,26 +28,7 @@ $colors: (
 	/* -------------------------------------------------------------------------- */
 	/*                             Type Variables                            */
 	/* -------------------------------------------------------------------------- */
-	// * -------- TESTS -------- *
-	// font-size: 1.625rem; /*26 px*/
-	// font-size: 1.5rem; /*24 px*/
-	// font-size: 1.375rem; /*22 px*/
-	//
-	// // DESKTOP
-	// --fsize-display: 120px;
-	// --fsize-A: 105px;
-	// --fsize-B: 76px;
-	// --fsize-C: 43px;
-	// --fsize-D: 26px;
-	// --fsize-E: 22px;
-	// // MOBILE
-	// --fsize-display: 48px;
-	// --fsize-A: 44px;
-	// --fsize-B: 36px;
-	// --fsize-C: 26px;
-	// --fsize-D: 22px;
-	// --fsize-E: 19px;
-	// * -------- ACTUAL CLAMPS -------- *
+
 	/* Family */
 	--primary-type: "Mori", Poppins, Helvetica, Arial, sans-serif;
 	--secondary-type: "Editorial", "Lastik", "Playfair Display", Cambria, Cochin, Georgia, Times,
@@ -68,31 +38,24 @@ $colors: (
 	/* Size */
 	--fs-root: clamp(1.125rem, calc(0.5rem + 0.723vw), calc(0.5rem + 0.723vw));
 	--fs-display: clamp(3rem, calc(0.5rem + 8.622vw), calc(0.5rem + 8.622vw));
-	// --fs-A: clamp(2.75rem, calc(0.5rem + 5.05vw), calc(0.5rem + 5.05vw));
 	--fs-A: clamp(2.75rem, calc(0.5rem + calc(4.3vw + 2.15vh)), calc(0.5rem + calc(4.3vw + 2.15vh)));
-	--fs-B: clamp(2.25rem, calc(0.5rem + 3.75vw), calc(0.5rem + 3.75vw));
-	// ^ tester new larger / v from design doc
-	// --fs-B: clamp(2.25rem, calc(0.5rem + 3.511vw), calc(0.5rem + 3.511vw));
-	// --fs-C: clamp(1.625rem, calc(0.5rem + 1.8075vw), calc(0.5rem + 1.8075vw));
-	// // ^ real value from des doc | v test values for live
-	--fs-C: clamp(1.625rem, calc(0.5rem + 1.5025vw), calc(0.5rem + 1.5025vw));
-	// // v more testing smaller
-	// --fs-C: clamp(1.5rem, calc(0.5rem + 1.2025vw), calc(0.5rem + 1.2025vw));
+	--fs-B: clamp(2.36rem, calc(0.5rem + 3.85vw), calc(0.5rem + 3.75vw));
+	--fs-C: clamp(1.425rem, calc(0.5rem + 1.35vw), calc(0.5rem + 1.35vw));
 	--fs-D: clamp(1.125rem, calc(0.5rem + 0.939vw), calc(0.5rem + 0.939vw));
 	--fs-E: var(--fs-root);
 
 	/* Leading */
 	--lh-display: 0.95;
 	--lh-A: 1.06;
-	--lh-B: 1.25;
-	--lh-C: 1.25;
+	--lh-B: 1.26;
+	--lh-C: 1.275;
 	--lh-D: 1.52;
 	--lh-E: 1.5;
 
 	/* Tracking */
 	--ls-display: -0.05em;
 	--ls-A: -0.035em;
-	--ls-B: -0.03125em;
+	--ls-B: -0.025em;
 	--ls-C: -0.015em;
 	--ls-D: -0.005em;
 	--ls-E: 0.0075em;
@@ -126,9 +89,6 @@ $colors: (
 	/* -------------------------------------------------------------------------- */
 	/*                               Set base values                              */
 	/* -------------------------------------------------------------------------- */
-
-	// line-height: var(--lh-E);
-	// letter-spacing: var(--ls-E);
 
 	--foreground-color: var(--main-night);
 	--background-color: var(--main-bright);

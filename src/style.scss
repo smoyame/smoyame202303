@@ -16,6 +16,11 @@
 	line-height: var(--lh-#{$letter});
 }
 
+.noevents {
+	/* Used for: hero animation, removed on complete */
+	pointer-events: none;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                               GRID UTILITIES                               */
 
@@ -67,7 +72,6 @@
 	top: 0;
 	pointer-events: none;
 	will-change: transform;
-	mix-blend-mode: difference;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -78,7 +82,6 @@
 		margin-left: -50%;
 		border-radius: 50%;
 		border: solid 2px var(--foreground-color);
-		// background-color: var(--background-color);
 		transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
 			background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
 			border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
@@ -86,17 +89,12 @@
 	}
 
 	#cursor.arrow .cursor__circle {
-		width: 128px;
-		height: 128px;
-		// background-color: var(--background-color);
+		width: 150px;
+		height: 150px;
 		border-color: var(--foreground-color);
 	}
 
-	// #cursor.arrow {
-	// 	background-color: none;
-	// }
-
-	#cursor.arrow::after {
+	#cursor.disabled-notif::after {
 		content: "";
 		position: absolute;
 		left: -50%;
@@ -229,6 +227,7 @@ img {
 /*                                   HEADER                                   */
 
 .header {
+	z-index: 100;
 	pointer-events: none;
 }
 
@@ -239,14 +238,14 @@ img {
 }
 
 .nav {
-	// because it spans the whole width and blocks a band
+	// because it spans the whole width and blocks an invisible band
 	pointer-events: none;
 	//
-	z-index: 100;
 	position: fixed;
 	bottom: 1rem;
 	inset-inline: 0;
 	@include typelvl(E);
+	z-index: 100;
 	//
 	display: flex;
 	justify-content: center;
@@ -293,7 +292,6 @@ img {
 
 .main__hero {
 	display: flex;
-	// so flex items will grow to width of parent
 	flex-direction: column;
 	align-items: stretch;
 	justify-content: center;
@@ -329,19 +327,16 @@ img {
 	white-space: nowrap;
 }
 
+.splitChar {
+	transform-origin: center;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                              HOME WORK GALLERY                             */
 
 .main__work {
 	scroll-margin-top: var(--gap-C);
 }
-
-.disable {
-	pointer-events: none;
-	opacity: 0.7;
-}
-
-// .disable-page {}
 
 .work__heading {
 	display: none;
@@ -385,30 +380,16 @@ img {
 	white-space: nowrap;
 }
 
-// O - TODO find out where to keep this permanently
-.image-wrapper {
+.proj__image-wrapper {
 	display: block;
-	aspect-ratio: 16 / 10;
-	// min-height: 60vh;
+	overflow: hidden;
+	position: relative;
+	aspect-ratio: 16 / 9;
 }
 
-.image {
-	min-width: 100%;
-	min-height: 100%;
+.proj__image {
+	height: 121%;
 }
-// X - TODO
-
-// @supports (container-type: size) and (container-type: inline-size) and (container-type: normal) {
-// 	.proj-card {
-// 		container-type: inline-size;
-// 		container-name: ProjectCard;
-// 	}
-// 	@container ProjectCard (max-width: 500px) {
-// 		.proj-card-tag {
-// 			background-color: magenta;
-// 		}
-// 	}
-// }
 
 /* -------------------------------------------------------------------------- */
 /*                                 HOME ABOUT                                 */
@@ -426,12 +407,10 @@ img {
 }
 
 .main__about__heading {
-	/*50% activates wrap w flex-wrap, little less to go just under (Width - Gap)/2 but maintain 1:1 ratio */
 	flex: 1 0 0%;
 }
 
 .about__copy {
-	/*50% activates wrap w flex-wrap, little less to go just under (Width - Gap)/2 but maintain 1:1 ratio */
 	flex: 1 1 0%;
 }
 
@@ -456,6 +435,7 @@ img {
 
 .hero-cover__img {
 	min-height: 50vh;
+	max-height: 110vh;
 }
 
 .hero__title {
@@ -477,6 +457,7 @@ img {
 	flex-wrap: wrap;
 	flex-direction: row-reverse;
 	gap: var(--unit);
+	row-gap: var(--gap-C);
 }
 
 .copy__grafs,
@@ -485,15 +466,12 @@ img {
 }
 
 .copy__grafs {
-	// order: 2;
 	@include typelvl(C);
 	flex: 2 1 49%;
 }
 
 .copy__tags-wrapper {
-	font-family: var(--secondary-type);
 	flex: 2 1 49%;
-	margin-bottom: var(--gap-E);
 }
 
 .copy__tags-header {
@@ -501,6 +479,10 @@ img {
 	margin-top: -0.25rem;
 	margin-bottom: var(--gap-F);
 	text-transform: uppercase;
+}
+
+.copy__tag {
+	font-family: var(--secondary-type);
 }
 
 .copy__tag::after {
@@ -518,7 +500,7 @@ img {
 }
 
 .gall__text-wrapper {
-	padding-bottom: var(--gap-C);
+	padding-block: var(--gap-C);
 	@include typelvl(D);
 }
 
@@ -612,7 +594,6 @@ img {
 	border-radius: var(--border-radius);
 	//
 	margin: var(--unit);
-	// this wraps the footer and allows it all to be touched by backdrop-filter in nav
 	isolation: isolate;
 }
 
