@@ -215,8 +215,7 @@ if (document.querySelector(".main__hero-text") !== null) {
             trigger: ".main__hero",
             start: "bottom 85%",
             end: "bottom top",
-            scrub: 1,
-            markers: true
+            scrub: 1
         }
     });
 }

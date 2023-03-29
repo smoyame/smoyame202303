@@ -278,7 +278,6 @@ if (document.querySelector(".main__hero-text") !== null) {
 			start: "bottom 85%",
 			end: "bottom top",
 			scrub: 1,
-			markers: true,
 		},
 	});
 }
