@@ -21,14 +21,16 @@
 </head>
 
 <body class="{{theme}}">
-  <div class="container">
-
+  <div class="body-container">
     {% include "_header.njk" %}
-    <main class="main">
-      {{ content | safe }}
-    </main>
-    {% include "_footer.njk" %}
-
+    <div class="contained-wrapper" id="smooth-wrapper">
+      <div class="contained-content" id="smooth-content">
+        <main class="main">
+            {{ content | safe }}
+        </main>
+        {% include "_footer.njk" %}
+      </div>
+    </div>
   </div>
   <!-- Cursor -->
   <div id="cursor" aria-hidden="true" data-scroll-sticky>
