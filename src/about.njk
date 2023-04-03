@@ -1,6 +1,6 @@
 ---
 layout: 'base.njk'
-theme: 'bright'
+theme: 'night'
 title: 'About Me | Digital Designer | Sami Moya Medina'
 ---
 
@@ -8,7 +8,7 @@ title: 'About Me | Digital Designer | Sami Moya Medina'
 	<h1 class="about__intro-heading">Sami - Digital Designer</h1>
 	<div class="about__intro-copy">
 		{% for graf in about.pageGrafs %}
-			<p class="about__graf">{{ graf }}</p>
+		<p class="about__graf">{{ graf }}</p>
 		{% endfor %}
 	</div>
 </section>
@@ -17,26 +17,26 @@ title: 'About Me | Digital Designer | Sami Moya Medina'
 		<h2 class="exp__heading">Experience</h2>
 		<ul class="exp__list">
 			{% for exp in about.exp %}
-				{% if (exp._type == 'freelance') %}
-					{% set organization = exp.client %}
-					{% set subheading = exp.scope %}
+			{% if (exp._type == 'freelance') %}
+			{% set organization = exp.client %}
+			{% set subheading = exp.scope %}
+			{% else %}
+			{% set organization = exp.company %}
+			{% set subheading = exp.title %}
+			{% endif %}
+			<li class="exp__item">
+				{% if exp.scope %}
+				<h3 class="exp__item-heading">Freelance & Contract Work</h3>
+				<p class="exp__item-scope">{{ subheading }}</p>
 				{% else %}
-					{% set organization = exp.company %}
-					{% set subheading = exp.title %}
+				<h3 class="exp__item-heading"><span class="exp__item-heading__org">{{ organization }},</span> {{ subheading }}</h3>
 				{% endif %}
-				<li class="exp__item">
-					{% if exp.scope %}
-						<h3 class="exp__item-heading">Freelance & Contract Work</h3>
-						<p class="exp__item-scope">{{ subheading }}</p>
-					{% else %}
-						<h3 class="exp__item-heading"><span class="exp__item-heading__org">{{ organization }},</span> {{ subheading }}</h3>
-					{% endif %}
-					<p class="exp__item-dates">
-						{{ exp.dates.start | replace("-", ".") | truncate(7, true, "") }}
-						&ndash;
-						{{ exp.dates.end | replace("-", ".") | truncate(7, true, "") }}
-						</p>
-				</li>
+				<p class="exp__item-dates">
+					{{ exp.dates.start | replace("-", ".") | truncate(7, true, "") }}
+					&ndash;
+					{{ exp.dates.end | replace("-", ".") | truncate(7, true, "") }}
+				</p>
+			</li>
 			{% endfor %}
 		</ul>
 	</div>
