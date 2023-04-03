@@ -65,9 +65,9 @@
 <nav class="proj__nav">
   <ul class="proj__nav-wrapper">
     {% if pagination.href.next %}
-    <li class="proj__nav-item"><a class="proj__nav-link" href="{{pagination.href.next}}"><span class="proj__nav-label">Next</span><span class="proj__nav-name">{{pagination.page.next.title}}</span></a></li>
+    <li class="proj__nav-item"><a class="proj__nav-link" href="{{pagination.href.next}}" data-cursor-class="arrow"><span class="proj__nav-label">Next</span><span class="proj__nav-name">{{pagination.page.next.title}}</span></a></li>
     {% else %}
-    <li class="proj__nav-item"><a class="proj__nav-link" href="{{pagination.href.first}}"><span class="proj__nav-label">Next</span><span class="proj__nav-name">{{pagination.page.first.title}}</span></a></li>
+    <li class="proj__nav-item"><a class="proj__nav-link" href="{{pagination.href.first}}" data-cursor-class="arrow"><span class="proj__nav-label">Next</span><span class="proj__nav-name">{{pagination.page.first.title}}</span></a></li>
     {% endif %}
   </ul>
 </nav>
