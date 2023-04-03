@@ -1,14 +1,24 @@
+---js
+
+{
+  layout: 'base.njk',
+  pagination: {
+    data: 'projects',
+    size: 1,
+    alias: 'p',
+    before: function(pageData, allData) {
+      return pageData.filter((entry)=>entry.live)
+    } 
+  },
+  permalink: "projects/{{ p.title | slugify }}/",
+  eleventyComputed: {
+    title: '{{ p.title }} | Digital Designer | Sami Moya Medina',
+    theme: '{{ p.theme }}'
+  }
+}
+
 ---
-layout: 'base.njk'
-pagination:
-  data: projects
-  size: 1
-  alias: p
-permalink: "projects/{{ p.title | slugify }}/"
-eleventyComputed:
-  title: '{{ p.title }} | Digital Designer | Sami Moya Medina'
-  theme: '{{ p.theme }}'
----
+
 {% set srcsetWidths = [450, 900, 1200, 1500, 1800, 2500] %}
 {% set srcsetSizes = ['(max-width: 400)', '(max-width: 800)', '(max-width: 1100)', '(max-width: 1400)', '(max-width: 2000)', '(min-width: 2001)'] %}
 <section class="proj__hero">
@@ -23,32 +33,41 @@ eleventyComputed:
   <div class="copy__details-wrapper">
     <div class="copy__grafs">
       {% for graf in p.info.grafs %}
-			  <p class="copy__graf">{{ graf }}</p>
-		  {% endfor %}
+      <p class="copy__graf">{{ graf }}</p>
+      {% endfor %}
     </div>
     <div class="copy__tags-wrapper">
       <h3 class="copy__tags-header">Domains</h3>
       {% for tag in p.tags %}
-        <span class="copy__tag">{{ tag }}</span>
+      <span class="copy__tag">{{ tag }}</span>
       {% endfor %}
-    </div> 
+    </div>
   </div>
 </section>
 <section class="proj__gallery">
   {% for piece in p.content %}
-    {% if piece._type == "mediaBlock" %}
-      <img class="gallery__item gall__image start{{piece.grid.start}} end{{piece.grid.end}}" srcset="{% for i in range(0, srcsetWidths.length) %}{{ piece.item.URL }}?w={{ srcsetWidths[i] }} {{ srcsetWidths[i] }}w{% if (i == srcsetWidths.length) %}{% else %}, {% endif %}{% endfor %}" sizes="{% for i in range(0, srcsetWidths.length) %}{{srcsetSizes[i]}} {{ srcsetWidths[i] }}px{% if (i == srcsetWidths.length) %}{% elseif (i !== srcsetWidths.length) %}, {% endif %}{% endfor %}" alt="{{ piece.item.alt }}">
-    {% elif piece._type == "textBlock" %}
-      <div class="gallery__item gall__text-wrapper start{{piece.grid.start}} end{{piece.grid.end}}">
-        {% for graf in piece.text %}
-          <p class="gallery__item text__graf">{{ graf }}</p>
-        {% endfor %}
-      </div>
-    {% elif piece._type == "videoBlock" %}
-      <video class="video gall__video start{{piece.grid.start}} end{{piece.grid.end}}" autoplay="true" muted="true" loop="true">
-        <source src="{{piece.video.URL}}" type="video/mp4">
-        There should be a video here!
-      </video>
-    {% endif %}
+  {% if piece._type == "mediaBlock" %}
+  <img class="gallery__item gall__image start{{piece.grid.start}} end{{piece.grid.end}}" srcset="{% for i in range(0, srcsetWidths.length) %}{{ piece.item.URL }}?w={{ srcsetWidths[i] }} {{ srcsetWidths[i] }}w{% if (i == srcsetWidths.length) %}{% else %}, {% endif %}{% endfor %}" sizes="{% for i in range(0, srcsetWidths.length) %}{{srcsetSizes[i]}} {{ srcsetWidths[i] }}px{% if (i == srcsetWidths.length) %}{% elseif (i !== srcsetWidths.length) %}, {% endif %}{% endfor %}" alt="{{ piece.item.alt }}">
+  {% elif piece._type == "textBlock" %}
+  <div class="gallery__item gall__text-wrapper start{{piece.grid.start}} end{{piece.grid.end}}">
+    {% for graf in piece.text %}
+    <p class="gallery__item text__graf">{{ graf }}</p>
+    {% endfor %}
+  </div>
+  {% elif piece._type == "videoBlock" %}
+  <video class="video gall__video start{{piece.grid.start}} end{{piece.grid.end}}" autoplay="true" muted="true" loop="true">
+    <source src="{{piece.video.URL}}" type="video/mp4">
+    There should be a video here!
+  </video>
+  {% endif %}
   {% endfor %}
-</section> 
+</section>
+<nav class="proj__nav">
+  <ul class="proj__nav-wrapper">
+    {% if pagination.href.next %}
+    <li class="proj__nav-item"><a class="proj__nav-link" href="{{pagination.href.next}}"><span class="proj__nav-label">Next</span><span class="proj__nav-name">{{pagination.page.next.title}}</span></a></li>
+    {% else %}
+    <li class="proj__nav-item"><a class="proj__nav-link" href="{{pagination.href.first}}"><span class="proj__nav-label">Next</span><span class="proj__nav-name">{{pagination.page.first.title}}</span></a></li>
+    {% endif %}
+  </ul>
+</nav>
