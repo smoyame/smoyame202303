@@ -252,8 +252,14 @@ img {
 
 .logotype,
 .nav__link {
-	text-decoration: none;
+	// text-decoration: none;
 	pointer-events: all;
+}
+/* I'm in a rush to apply to an exciting opportunity! Sorry for this.  This isn't typical of me (':*/
+li.nav__item:nth-child(2) > a:nth-child(1) {
+	text-decoration: line-through !important;
+	pointer-events: none;
+	opacity: 0.5;
 }
 
 .nav {
@@ -303,7 +309,7 @@ img {
 
 .nav__link {
 	display: block;
-	padding: 0.5rem 0.75rem 0.4rem;
+	padding: 0.5rem 0.75rem 0.6rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -817,8 +823,7 @@ img {
 		height: fit-content;
 	}
 
-	.logotype,
-	.nav__link {
+	.logotype {
 		text-decoration: none;
 	}
 
@@ -846,7 +851,7 @@ img {
 	}
 
 	.nav__wrapper::after {
-		content: "";
+		content: none;
 		height: calc(100% + 0.75rem);
 		margin-left: auto;
 		border-bottom: var(--border-width) var(--border-style) var(--foreground-color);
@@ -856,6 +861,13 @@ img {
 
 	.nav__item {
 		text-align: end;
+	}
+	/* I'm in a rush to apply to an exciting opportunity! Sorry for this. */
+	li.nav__item:nth-child(2) > a:nth-child(1) {
+		padding-top: 0.5rem;
+		text-decoration: line-through !important;
+		pointer-events: none;
+		opacity: 0.5;
 	}
 
 	.nav__link {
