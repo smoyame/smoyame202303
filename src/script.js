@@ -95,18 +95,21 @@ ScrollSmoother_1.ScrollSmoother.create({
 });
 //* -------------------------------------------------------------------------- *//
 //*                            Base values and anims                           *//
-var stdInY = 150;
-var stdDelay = 0.125;
-var stdDuration = 1.25;
-var stdEaseIn = "growIn";
-var stdStagger = 0.02;
+var std = {
+    inY: 150,
+    delay: 0.125,
+    duration: 1.25,
+    easeIn: "growIn",
+    stagger: 0.02
+};
 var fadeInUp = function (element) {
     gsap_1.gsap.from(element, {
-        duration: stdDuration,
-        y: stdInY,
+        duration: std.duration,
+        y: std.inY,
         opacity: 0,
-        ease: stdEaseIn,
-        delay: stdDelay
+        ease: std.easeIn,
+        delay: std.delay,
+        stagger: std.stagger
     });
 };
 //* -------------------------------------------------------------------------- *//
@@ -115,18 +118,20 @@ var fadeInUp = function (element) {
 //*                               HERO - ANIMATION                             *//
 if (document.querySelector(".main__hero-text") !== null) {
     var theElement = ".main__hero-text";
+    var hero_1 = document.querySelector(".main__hero");
+    var homeSplitTextTL_1 = gsap_1.gsap.timeline({ delay: std.delay });
     var splitHeroText = new SplitText_1.SplitText(theElement, {
         type: "chars, lines",
         linesClass: "splitLine splitLine++",
         charsClass: "splitChar splitChar++"
     });
-    var hero_1 = document.querySelector(".main__hero");
-    var homeSplitTextTL_1 = gsap_1.gsap.timeline({ delay: stdDelay });
     var animateChars = function (chars, ease, overlap) {
         var yPercTravel = 75;
         homeSplitTextTL_1.from(chars, {
             opacity: 0,
             yPercent: yPercTravel,
+            transform: "scaleY(1.175)",
+            rotation: 10,
             ease: "growIn",
             onComplete: function () {
                 hero_1.classList.remove("noevents");
@@ -137,12 +142,9 @@ if (document.querySelector(".main__hero-text") !== null) {
             }
         }, overlap);
     };
-    var chars = splitHeroText.chars;
     var lines = splitHeroText.lines;
     var lineAllChars = document.querySelectorAll(".splitChar");
-    var lineA = lines[0];
     var lineAchars = document.querySelectorAll(".hero-text__larger--chunk-a .splitChar");
-    var lineB = lines[1];
     var lineBchars = document.querySelectorAll(".hero-text__larger--chunk-b .splitChar");
     animateChars(lineAchars, "linear", "<");
     animateChars(lineBchars, "power1.in", "<.6");
@@ -206,16 +208,28 @@ if (document.querySelector(".main__hero-text") !== null) {
         });
     }
     /* -------------------------------------------------------------------------- */
-    /*                            SCROLL AWAY FROM HERO                           */
-    gsap_1.gsap.to(theElement, {
-        scale: 0.8725,
-        opacity: 0,
-        y: -100,
-        scrollTrigger: {
-            trigger: ".main__hero",
-            start: "bottom 85%",
-            end: "bottom top",
-            scrub: 1
-        }
-    });
+    /*                            SCROLL AWAY, FADE OUT                           */
+    var wrappers = {
+        home: ".main__hero",
+        work: ".main__work",
+        about: ".main__about"
+    };
+    var subWrappers = {
+        home: ".main__hero-txt",
+        work: ".work__gallery"
+    };
+    var goScrollDown = function (element, trigger) {
+        gsap_1.gsap.to(element, {
+            scale: 0.8725,
+            opacity: 0,
+            y: -100,
+            scrollTrigger: {
+                trigger: trigger,
+                markers: true,
+                start: "bottom 85%",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+    };
 }

@@ -125,19 +125,22 @@ ScrollSmoother.create({
 //* -------------------------------------------------------------------------- *//
 //*                            Base values and anims                           *//
 
-const stdInY = 150;
-const stdDelay = 0.125;
-const stdDuration = 1.25;
-const stdEaseIn: string = "growIn";
-const stdStagger: number = 0.02;
+const std = {
+	inY: 150,
+	delay: 0.125,
+	duration: 1.25,
+	easeIn: "growIn",
+	stagger: 0.02,
+};
 
 let fadeInUp = (element: string) => {
 	gsap.from(element, {
-		duration: stdDuration,
-		y: stdInY,
+		duration: std.duration,
+		y: std.inY,
 		opacity: 0,
-		ease: stdEaseIn,
-		delay: stdDelay,
+		ease: std.easeIn,
+		delay: std.delay,
+		stagger: std.stagger,
 	});
 };
 
@@ -148,15 +151,15 @@ let fadeInUp = (element: string) => {
 
 if (document.querySelector(".main__hero-text") !== null) {
 	const theElement = ".main__hero-text";
+	const hero = document.querySelector(".main__hero");
+	const homeSplitTextTL = gsap.timeline({ delay: std.delay });
+
 	const splitHeroText = new SplitText(theElement, {
 		type: "chars, lines",
 		linesClass: "splitLine splitLine++",
 		charsClass: "splitChar splitChar++",
 	});
 
-	const hero = document.querySelector(".main__hero");
-
-	const homeSplitTextTL = gsap.timeline({ delay: stdDelay });
 	let animateChars = (chars: any, ease: string, overlap: string) => {
 		const yPercTravel = 75;
 		homeSplitTextTL.from(
@@ -164,6 +167,8 @@ if (document.querySelector(".main__hero-text") !== null) {
 			{
 				opacity: 0,
 				yPercent: yPercTravel,
+				transform: "scaleY(1.175)",
+				rotation: 10,
 				ease: "growIn",
 				onComplete: () => {
 					hero.classList.remove("noevents");
@@ -177,16 +182,12 @@ if (document.querySelector(".main__hero-text") !== null) {
 		);
 	};
 
-	const chars = splitHeroText.chars;
 	const lines = splitHeroText.lines;
 
 	const lineAllChars: NodeListOf<Element> = document.querySelectorAll(".splitChar");
-	const lineA = lines[0];
 	const lineAchars: NodeListOf<Element> = document.querySelectorAll(
 		".hero-text__larger--chunk-a .splitChar"
 	);
-
-	const lineB = lines[1];
 	const lineBchars: NodeListOf<Element> = document.querySelectorAll(
 		".hero-text__larger--chunk-b .splitChar"
 	);
@@ -267,17 +268,30 @@ if (document.querySelector(".main__hero-text") !== null) {
 	}
 
 	/* -------------------------------------------------------------------------- */
-	/*                            SCROLL AWAY FROM HERO                           */
+	/*                            SCROLL AWAY, FADE OUT                           */
+	const wrappers = {
+		home: ".main__hero",
+		work: ".main__work",
+		about: ".main__about",
+	};
 
-	gsap.to(theElement, {
-		scale: 0.8725,
-		opacity: 0,
-		y: -100,
-		scrollTrigger: {
-			trigger: ".main__hero",
-			start: "bottom 85%",
-			end: "bottom top",
-			scrub: 1,
-		},
-	});
+	const subWrappers = {
+		home: ".main__hero-txt",
+		work: ".work__gallery",
+	};
+
+	let goScrollDown = (element: string, trigger: string) => {
+		gsap.to(element, {
+			scale: 0.8725,
+			opacity: 0,
+			y: -100,
+			scrollTrigger: {
+				trigger: trigger,
+				markers: true,
+				start: "bottom 85%",
+				end: "bottom top",
+				scrub: 1,
+			},
+		});
+	};
 }
