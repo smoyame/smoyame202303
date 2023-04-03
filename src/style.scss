@@ -14,6 +14,7 @@
 	font-size: var(--fs-#{$letter});
 	letter-spacing: var(--ls-#{$letter});
 	line-height: var(--lh-#{$letter});
+	font-weight: var(--fw-#{$letter});
 }
 
 .noevents {
@@ -72,6 +73,7 @@
 	top: 0;
 	pointer-events: none;
 	will-change: transform;
+	mix-blend-mode: difference;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -81,7 +83,8 @@
 		margin-top: -50%;
 		margin-left: -50%;
 		border-radius: 50%;
-		border: solid 2px var(--foreground-color);
+		background-color: var(--background-color);
+		border: solid 2px var(--background-color);
 		transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
 			background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
 			border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
@@ -91,7 +94,7 @@
 	#cursor.arrow .cursor__circle {
 		width: 150px;
 		height: 150px;
-		border-color: var(--foreground-color);
+		border-color: var(--background-color);
 	}
 
 	#cursor.disabled-notif::after {
@@ -103,6 +106,18 @@
 		height: 100%;
 		background-repeat: no-repeat;
 		background-position: center;
+	}
+
+	#cursor.disabled-notif::before {
+		content: "🔐";
+		position: absolute;
+		left: 25%;
+		top: 65%;
+	}
+
+	.disabled-notif .cursor__circle {
+		border-style: dotted;
+		background-color: unset;
 	}
 
 	#cursor.subtle .cursor__circle {
@@ -183,6 +198,10 @@ img {
 .work__heading,
 .main__about__heading {
 	@include typelvl(B);
+}
+
+.contained-content {
+	padding-bottom: 0.25rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -436,6 +455,7 @@ img {
 
 .hero__title {
 	@include typelvl(A);
+	font-family: var(--secondary-type);
 }
 
 .proj__copy-intro {
@@ -444,7 +464,6 @@ img {
 
 .copy__prompt {
 	@include typelvl(B);
-	font-family: var(--secondary-type);
 	padding-block: var(--gap-C);
 }
 
@@ -496,8 +515,54 @@ img {
 }
 
 .gall__text-wrapper {
-	padding-block: var(--gap-C);
+	padding-block: var(--gap-D) var(--gap-C);
 	@include typelvl(D);
+}
+
+.proj__nav {
+	margin-block: var(--gap-A) var(--gap-B);
+}
+
+.proj__nav-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--unit);
+}
+
+.proj__nav-name {
+	@include typelvl(B);
+	font-family: var(--secondary-type);
+	font-style: italic;
+}
+
+.gall__video {
+	margin-top: var(--gap-B);
+}
+
+.proj__nav-item {
+	grid-column-start: 2;
+	width: fit-content;
+}
+
+.proj__nav-label {
+	margin-bottom: 0.5em;
+}
+
+.proj__nav-link {
+	text-decoration: none;
+	position: relative;
+	//
+	display: flex;
+	flex-direction: column;
+}
+
+.proj__nav-name::after {
+	content: " \2192";
+	display: inline;
+	// position: absolute;
+	right: 0;
+	font-size: var(--fs-A);
+	line-height: var(--lh-B);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -542,19 +607,20 @@ img {
 }
 
 .about__exp-wrapper {
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(8, 1fr);
 	gap: var(--unit);
 }
 
 .exp__heading {
-	@include typelvl(B);
-	font-family: var(--secondary-type);
+	@include typelvl(C);
+	// font-family: var(--secondary-type);
 	margin-bottom: var(--gap-D);
-	grid-column: 1 / span 2;
+	grid-column: 3 / span 2;
 }
 
 .exp__list {
-	grid-column: 4 / -1;
+	grid-column: 5 / -1;
+	max-width: 40ch;
 }
 
 .about__experience,
