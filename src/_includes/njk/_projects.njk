@@ -1,28 +1,28 @@
 {% set srcsetWidths = [450, 900, 1200, 1500, 1800, 2500] %}
 {% set srcsetSizes = ['(max-width: 400)', '(max-width: 800)', '(max-width: 1100)', '(max-width: 1400)', '(max-width: 2000)', '(min-width: 2001)'] %}
-{% set speedVal = "auto" %} 
+{% set speedVal = "auto" %}
 <section class="main__work" id="work">
 	<h2 class="work__heading">My Work</h2>
 	<ul class="work__gallery">
 		{% for project in projects %}
-			<li class="proj-card start{{project.grid.start}} end{{project.grid.end}}">
+		<li class="proj-card start{{project.grid.start}} end{{project.grid.end}}">
 			{% if project.live == true %}
-				<a class="proj-card__linked-wrapper" href="projects/{{ project.title | slugify }}" data-cursor-class="arrow">
-			{% else %}
+			<a class="proj-card__linked-wrapper" href="projects/{{ project.title | slugify }}" data-cursor-class="arrow">
+				{% else %}
 				<div class="proj-card__linked-wrapper proj-card__wip">
-			{% endif %}
+					{% endif %}
 					<div class="proj-card__copy">
 						<h3 class="proj-card__title">{{project.title}}</h3>
 						<p class="proj-card__tag">{{project.tags[0]}}</p>
 					</div>
 					<div class="proj__image-wrapper"><img class="proj__image" srcset="{% for i in range(0, srcsetWidths.length) %}{{project.cover.URL}}?w={{ srcsetWidths[i] }} {{ srcsetWidths[i] }}w{% if (i == srcsetWidths.length) %}{% else %}, {% endif %}{% endfor %}" sizes="{% for i in range(0, srcsetWidths.length) %}{{srcsetSizes[i]}} {{ srcsetWidths[i] }}px{% if (i == srcsetWidths.length) %}{% elseif (i !== srcsetWidths.length) %}, {% endif %}{% endfor %}" alt="{{ project.cover.alt }}"></div>
-			{% if project.live == true %}
-				</a>
+					{% if project.live == true %}
+			</a>
 			{% else %}
-				</div>
+			</div>
 			{% endif %}
-				
-			</li>
+
+		</li>
 		{% endfor %}
 	</ul>
 </section>

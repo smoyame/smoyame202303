@@ -139,6 +139,16 @@
 /*                                                                            */
 /* -------------------------------------------------------------------------- */
 
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
 ::selection {
 	background-color: var(--foreground-color);
 	color: var(--background-color);
@@ -150,6 +160,7 @@ body {
 	font-size: var(--fs-root);
 	font-family: var(--primary-type);
 	font-kerning: normal;
+	animation: fade-in 1.5s ease-in;
 }
 
 section {
