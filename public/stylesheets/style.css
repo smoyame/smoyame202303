@@ -509,7 +509,7 @@ img {
 /* -------------------------------------------------------------------------- */
 /*                                   HEADER                                   */
 .header {
-  z-index: 100;
+  z-index: 200;
   pointer-events: none;
 }
 
@@ -537,6 +537,10 @@ li.nav__item:nth-child(2) > a:nth-child(1) {
   z-index: 100;
   display: flex;
   justify-content: center;
+}
+
+.logotype {
+  text-decoration: none;
 }
 
 .nav__wrapper {
@@ -815,27 +819,14 @@ li.nav__item:nth-child(2) > a:nth-child(1) {
   gap: var(--unit);
 }
 
-.proj__nav-name {
-  font-size: var(--fs-B);
-  letter-spacing: var(--ls-B);
-  line-height: var(--lh-B);
-  font-weight: var(--fw-B);
-  font-family: var(--secondary-type);
-  font-style: italic;
-}
-
 .gall__video {
   margin-top: var(--gap-B);
 }
 
 .proj__nav-item {
-  grid-column-start: 2;
+  grid-column-start: 1;
   width: -moz-fit-content;
   width: fit-content;
-}
-
-.proj__nav-label {
-  margin-bottom: 0.5em;
 }
 
 .proj__nav-link {
@@ -843,6 +834,17 @@ li.nav__item:nth-child(2) > a:nth-child(1) {
   position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.proj__nav-name {
+  font-size: var(--fs-B);
+  letter-spacing: var(--ls-B);
+  line-height: var(--lh-B);
+  font-weight: var(--fw-B);
+  font-family: var(--secondary-type);
+  font-style: italic;
+  margin-left: -0.0625em;
+  text-decoration: underline;
 }
 
 .proj__nav-name::after {
@@ -956,6 +958,7 @@ li.nav__item:nth-child(2) > a:nth-child(1) {
   border-radius: var(--border-radius);
   margin: var(--unit);
   isolation: isolate;
+  margin-bottom: 6rem;
 }
 
 .footer__id__wrapper {
@@ -1029,6 +1032,7 @@ li.nav__item:nth-child(2) > a:nth-child(1) {
   font-weight: var(--fw-A);
   text-decoration: underline;
   text-underline-offset: 0.125em;
+  letter-spacing: -0.0375em;
   text-decoration-thickness: var(--border-width);
 }
 
@@ -1178,6 +1182,9 @@ li.nav__item:nth-child(2) > a:nth-child(1) {
   /* -------------------------------------------------------------------------- */
   .proj__gallery {
     display: grid;
+  }
+  .proj__nav-item {
+    grid-column-start: 2;
   }
   /* -------------------------------------------------------------------------- */
   /*                              INDIV ABOUT PAGE                              */
