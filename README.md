@@ -1,7 +1,7 @@
 
-# 🖥 Personal Portfolio 2023v0.5
+# 🖥 Personal Portfolio 2023 - March
 
-✨ **LIVE EXAMPLE OF THIS REPO: https://smoyame2023.netlify.app/** ✨
+✨ **LIVE EXAMPLE OF THIS REPO: https://smoyame202303.netlify.app/** ✨
 
 > (I'm *VERY* proud I managed to get its hero interaction working. Please check it out! 🌈)
 
