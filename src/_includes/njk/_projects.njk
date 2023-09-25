@@ -1,11 +1,13 @@
 {% set srcsetWidths = [450, 900, 1200, 1500, 1800, 2500] %}
 {% set srcsetSizes = ['(max-width: 400)', '(max-width: 800)', '(max-width: 1100)', '(max-width: 1400)', '(max-width: 2000)', '(min-width: 2001)'] %}
 {% set speedVal = "auto" %}
+{% set siteExpDate = 20230410 %}
+
 <section class="main__work" id="work">
 	<h2 class="work__heading">My Work</h2>
 	<ul class="work__gallery">
 		{% for project in projects %}
-		<li class="proj-card start{{project.grid.start}} end{{project.grid.end}}">
+		{% if ((project._createdAt | replace("-", "") | truncate(8, true, "") | int) < siteExpDate) and project.feature %} <li class="proj-card start{{project.grid.start}} end{{project.grid.end}}">
 			{% if project.live == true %}
 			<a class="proj-card__linked-wrapper" href="projects/{{ project.title | slugify }}" data-cursor-class="arrow">
 				{% else %}
@@ -22,7 +24,8 @@
 			</div>
 			{% endif %}
 
-		</li>
-		{% endfor %}
+			</li>
+			{% endif %}
+			{% endfor %}
 	</ul>
 </section>
