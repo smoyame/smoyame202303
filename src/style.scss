@@ -907,8 +907,7 @@ li.nav__item:nth-child(2) > a:nth-child(1) {
 		grid-auto-flow: row dense;
 	}
 
-	.proj-card:nth-child(1),
-	.proj-card:nth-child(2) {
+	.proj-card:nth-child(1) {
 		grid-row-start: 1;
 	}
 
